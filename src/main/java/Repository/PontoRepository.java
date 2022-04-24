@@ -291,6 +291,40 @@ public class PontoRepository {
 		return pontosList;
 	}
 	
+	public List<Ponto> buscarPontosMesAtualTodosUsuarios(String mesAtual) {
+
+		List<Ponto> pontosList = new ArrayList<>();
+
+		Connection con = ConnectionFactory.conectar();
+
+		try (PreparedStatement pstm = con.prepareStatement(
+				"SELECT * FROM ponto WHERE data like '%" + mesAtual + "%'")) {
+
+			try (ResultSet result = pstm.executeQuery();) {
+
+				while (result.next()) {
+					Ponto ponto = new Ponto();
+					ponto.setUser_id(result.getLong("user_id"));
+					ponto.setData(result.getDate("data"));
+					ponto.setDataEntrada(result.getTime("data_hora_entrada"));
+					ponto.setDataAlmoco(result.getTime("data_hora_almoco"));
+					ponto.setDataVoltaAlmoco(result.getTime("data_hora_volta_almoco"));
+					ponto.setDataSaida(result.getTime("data_hora_saida"));
+					pontosList.add(ponto);
+				}
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		ConnectionFactory.desconectar();
+
+		return pontosList;
+
+	}
+	
 	public Ponto buscarPonto(Long user_id, String data) {
 		
 		Connection con = ConnectionFactory.conectar();

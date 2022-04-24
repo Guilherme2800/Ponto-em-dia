@@ -3,13 +3,11 @@ package Service.CalcularHorasTrabalhadas;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import javax.servlet.http.HttpServletRequest;
 
 import Model.Ponto;
 import Model.Usuario;
-import Service.PontoService;
 
 public class HorasTrabalhadasMesAtual extends CalcularHorasTrabalhadas {
 
@@ -20,20 +18,29 @@ public class HorasTrabalhadasMesAtual extends CalcularHorasTrabalhadas {
 				.buscarPontosMesAtualDoUsuario((Usuario) req.getSession().getAttribute("usuario"));
 
 		long totalMinutos = 0l;
-		Integer totalHoras = 0;
 
 		for (Ponto ponto : pontosUsuario) {
 			pontoService.validarHorarios(ponto);
 			totalMinutos += calcularMinutos(ponto);
 		}
 
-		totalMinutos *= -1;
-		while (totalMinutos >= 60) {
-			totalMinutos -= 60;
-			totalHoras++;
+		return gerarHorasTrabalhadas(totalMinutos);
+	}
+	
+
+	public String calcularHoras(Usuario user) {
+
+		List<Ponto> pontosUsuario = pontoService
+				.buscarPontosMesAtualDoUsuario(user);
+
+		long totalMinutos = 0l;
+
+		for (Ponto ponto : pontosUsuario) {
+			pontoService.validarHorarios(ponto);
+			totalMinutos += calcularMinutos(ponto);
 		}
 
-		return totalHoras.toString() + ":" + (totalMinutos == 0 ? "00" : totalMinutos) + "";
+		return gerarHorasTrabalhadas(totalMinutos);
 	}
 
 	@Override

@@ -10,8 +10,34 @@ public class Usuario {
 	private String nome;
 	private Date dataNascimento;
 	private String cargo;
-	private Integer horasPrevistas;
 	private TipoUsuario tipoUsuario;
+	private String urlImagem;
+	private Long celular;
+	private String email;
+
+	public Long getCelular() {
+		return celular;
+	}
+
+	public void setCelular(Long celular) {
+		this.celular = celular;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getUrlImagem() {
+		return urlImagem;
+	}
+
+	public void setUrlImagem(String urlImagem) {
+		this.urlImagem = urlImagem;
+	}
 
 	public TipoUsuario getTipoUsuario() {
 		return tipoUsuario;
@@ -19,14 +45,6 @@ public class Usuario {
 
 	public void setTipoUsuario(TipoUsuario tipoUsuario) {
 		this.tipoUsuario = tipoUsuario;
-	}
-
-	public Integer getHorasPrevistas() {
-		return horasPrevistas;
-	}
-
-	public void setHorasPrevistas(Integer horasPrevistas) {
-		this.horasPrevistas = horasPrevistas;
 	}
 
 	public String getCargo() {

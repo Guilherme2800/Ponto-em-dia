@@ -20,22 +20,13 @@ public class HorasTrabalhadasSemanaAtual extends CalcularHorasTrabalhadas {
 				.buscarPontoSemanaAtualDoUsuario((Usuario) req.getSession().getAttribute("usuario"));
 
 		long totalMinutos = 0l;
-		Integer totalHoras = 0;
 
 		for (Ponto ponto : pontosUsuario) {
-
 			pontoService.validarHorarios(ponto);
 			totalMinutos += this.calcularMinutos(ponto);
-
 		}
 
-		totalMinutos *= -1;
-		while (totalMinutos >= 60) {
-			totalMinutos -= 60;
-			totalHoras++;
-		}
-
-		return totalHoras.toString() + ":" + (totalMinutos == 0 ? "00" : totalMinutos) + "";
+		return gerarHorasTrabalhadas(totalMinutos);
 	}
 
 	@Override

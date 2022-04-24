@@ -42,6 +42,37 @@ public class HorasExtrasMesAtual extends CalcularHorasTrabalhadas {
 		return totalHorasExtras.toString() + ":" + (totalMinutos == 0 ? "00" : totalMinutos) + "";
 
 	}
+	
+	public String calcularHoras(Usuario user) {
+		List<Ponto> pontosUsuario = pontoService
+				.buscarPontosMesAtualDoUsuario(user);
+
+		long totalMinutos = 0l;
+		Integer totalHorasExtras = 0;
+
+		for (Ponto ponto : pontosUsuario) {
+			pontoService.validarHorarios(ponto);
+			totalMinutos += calcularMinutos(ponto);
+		}
+
+		totalMinutos *= -1;
+		
+		for(int i = 0; i < pontosUsuario.size(); i++) {
+			totalMinutos -= 480;
+		}
+		
+		while(totalMinutos >= 60) {
+			totalHorasExtras++;
+			totalMinutos -= 60;
+		}
+		
+		if(totalMinutos < 0) {
+			totalMinutos = 0;
+		}
+		
+		return totalHorasExtras.toString() + ":" + (totalMinutos == 0 ? "00" : totalMinutos) + "";
+
+	}
 
 	@Override
 	public String intervalo() {

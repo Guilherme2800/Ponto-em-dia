@@ -14,7 +14,6 @@ public class HorasTrabalhadasDiaAnterior extends CalcularHorasTrabalhadas {
 	public String calcularHoras(HttpServletRequest req) {
 
 		long totalMinutos = 0l;
-		Integer totalHoras = 0;
 
 		Ponto ponto = pontoService.buscarPontoDiaAnteriorDoUsuario((Usuario) req.getSession().getAttribute("usuario"));
 
@@ -23,15 +22,7 @@ public class HorasTrabalhadasDiaAnterior extends CalcularHorasTrabalhadas {
 		}
 		pontoService.validarHorarios(ponto);
 
-		totalMinutos = this.calcularMinutos(ponto);
-
-		totalMinutos *= -1;
-		while (totalMinutos >= 60) {
-			totalMinutos -= 60;
-			totalHoras++;
-		}
-
-		return totalHoras.toString() + ":" + (totalMinutos == 0 ? "00" : totalMinutos) + "";
+		return gerarHorasTrabalhadas(totalMinutos);
 	}
 
 	@Override

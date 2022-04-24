@@ -6,15 +6,17 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Service.HorasTrabalhadasService;
+import Model.Usuario;
+import Service.UsuarioService;
 
-public class DashbordAdmin implements AcaoInterface{
+public class ExibirPerfil implements AcaoInterface{
 
 	@Override
 	public String executar(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		req.setAttribute("listaDashbord", new HorasTrabalhadasService().horasTrabalhadasMesAtualTodosUsuarios());
-		return "forward:dashbordAdmin.jsp";
+		Usuario user = (Usuario) req.getSession().getAttribute("usuario");
+		Usuario userFull = new UsuarioService().buscarUsuario(user.getId());
+		req.setAttribute("userFull", userFull);
+		return "forward:perfil.jsp";
 	}
 
 	

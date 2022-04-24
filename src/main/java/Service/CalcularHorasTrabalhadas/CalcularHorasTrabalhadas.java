@@ -25,4 +25,24 @@ public abstract class CalcularHorasTrabalhadas {
 		
 	}
 	
+	public String gerarHorasTrabalhadas(Long minutosTrabalhados) {
+		
+		Long totalHoras = 0l;
+		
+		if(minutosTrabalhados < 0) {
+			minutosTrabalhados *= -1;
+		}
+		
+		while (minutosTrabalhados >= 60) {
+			minutosTrabalhados -= 60;
+			totalHoras++;
+		}
+		
+		if(minutosTrabalhados < 10) {
+			return totalHoras.toString() + ":" + (minutosTrabalhados == 0 ? "00" : "0"+minutosTrabalhados) + "";
+		}
+
+		return totalHoras.toString() + ":" + (minutosTrabalhados == 0 ? "00" : minutosTrabalhados) + "";
+	}
+	
 }

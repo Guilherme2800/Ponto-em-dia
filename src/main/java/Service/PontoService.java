@@ -57,22 +57,16 @@ public class PontoService {
 
 	public Ponto validarHorarios(Ponto ponto) {
 
-		String format = formatacaoSemHora.format(ponto.getData());
-		try {
-			if (ponto.getDataAlmoco() == null) {
-				ponto.setDataAlmoco(formatacaoComHora.parse(format + " 12:00:00"));
-			}
+		if (ponto.getDataAlmoco() == null) {
+			ponto.setDataAlmoco(ponto.getDataEntrada());
+		}
 
-			if (ponto.getDataVoltaAlmoco() == null) {
-				ponto.setDataVoltaAlmoco(formatacaoComHora.parse(format + " 14:00:00"));
-			}
+		if (ponto.getDataVoltaAlmoco() == null) {
+			ponto.setDataVoltaAlmoco(ponto.getDataAlmoco());
+		}
 
-			if (ponto.getDataSaida() == null) {
-				ponto.setDataSaida(formatacaoComHora.parse(format + " 18:00:00"));
-			}
-
-		} catch (ParseException e) {
-			e.printStackTrace();
+		if (ponto.getDataSaida() == null) {
+			ponto.setDataSaida(ponto.getDataVoltaAlmoco());
 		}
 
 		return ponto;
@@ -93,15 +87,15 @@ public class PontoService {
 
 	public void editarRegistro(Long user_id, String data, String horaEntrada, String horaAlmoco, String horaVoltaAlmoco,
 			String saida) {
-		
+
 		PontoRepository pontoRepository = PontoRepository.getCurrentInstance();
-		
+
 		Ponto ponto = pontoRepository.buscarPonto(user_id, data);
-		
-		if(ponto != null) {
+
+		if (ponto != null) {
 			pontoRepository.editarPonto(ponto.getId(), data, horaEntrada, horaAlmoco, horaVoltaAlmoco, saida);
 		}
-		
+
 	}
 
 }
