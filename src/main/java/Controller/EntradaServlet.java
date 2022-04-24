@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Model.TipoUsuario;
+import Model.Usuario;
 import Service.acoes.AcaoInterface;
 
 @WebServlet("/entrada")
@@ -29,6 +31,14 @@ public class EntradaServlet extends HttpServlet {
 		String acao = req.getParameter("acao");
 		String metodo = null;
 
+		if(acao != null && acao.contains("Admin")) {
+			Usuario user = (Usuario) req.getSession().getAttribute("usuario");
+			if(user.getTipoUsuario() != TipoUsuario.admin) {
+				resp.sendRedirect("/PontoEmDia/login");
+				return;
+			}
+		}
+		
 		try {
 			AcaoInterface newInstance = (AcaoInterface) Class.forName("Service.acoes." + acao).newInstance();
 			metodo = newInstance.executar(req, resp);

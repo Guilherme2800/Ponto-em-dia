@@ -35,6 +35,10 @@ public class HorasExtrasMesAtual extends CalcularHorasTrabalhadas {
 			totalMinutos -= 60;
 		}
 		
+		if(totalMinutos < 0) {
+			totalMinutos = 0;
+		}
+		
 		return totalHorasExtras.toString() + ":" + (totalMinutos == 0 ? "00" : totalMinutos) + "";
 
 	}

@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import Model.TipoUsuario;
 import Model.Usuario;
 
 public class UsuarioRepository {
@@ -60,7 +61,8 @@ public class UsuarioRepository {
 					user.setId(result.getLong("id"));
 					user.setNome(result.getString("nome"));
 					user.setCargo(result.getString("cargo"));
-					user.setDataNascimento(result.getDate("data_nascimento"));
+					user.setTipoUsuario(TipoUsuario.valueOf(result.getString("tipo")));
+					
 				}
 			}
 

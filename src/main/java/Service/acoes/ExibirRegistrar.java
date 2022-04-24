@@ -6,7 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ExibirMenu implements AcaoInterface{
+public class ExibirRegistrar implements AcaoInterface{
 
 	@Override
 	public String executar(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

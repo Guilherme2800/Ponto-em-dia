@@ -8,18 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Model.Ponto;
-import Model.Usuario;
 import Service.PontoService;
 
-public class HistoricoUsuario implements AcaoInterface{
-	
+public class HistoricoUsuarioAdmin implements AcaoInterface{
+
 	@Override
 	public String executar(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		List<Ponto> pontosUsuario = new PontoService().buscarHistoricoDoUsuario((Usuario) req.getSession().getAttribute("usuario"));
+		List<Ponto> pontosUsuario = new PontoService().buscarHistoricoTodosUsuario();
 		req.setAttribute("listaPontos", pontosUsuario);
-		return "forward:historicoPontos.jsp";
+		return "forward:historicoPontosAdmin.jsp";
 	}
-
-
+	
 }

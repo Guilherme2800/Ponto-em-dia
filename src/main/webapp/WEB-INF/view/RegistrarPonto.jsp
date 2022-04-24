@@ -35,10 +35,17 @@
 					class="nav-link text-white" aria-current="page"> <i
 						class="fa fa-home"></i><span class="ms-2">Dashbord</span>
 				</a></li>
-				<li><a href="entrada?acao=RegistrarPonto"
+				<li><a href="entrada?acao=ExibirRegistrar"
 					class="nav-link active"> <i class="fa fa-dashboard"></i><span
 						class="ms-2">Registrar Ponto</span>
 				</a></li>
+				<c:if test="${ usuario.tipoUsuario  == 'admin'}"> 
+				<li><a href="entrada?acao=HistoricoUsuarioAdmin"
+					class="nav-link text-white"> <i class="fa fa-first-order"></i><span
+						class="ms-2">Historico de Pontos</span>
+				</a></li>
+				 </c:if>
+				 
 				<li><a href="entrada?acao=HistoricoUsuario"
 					class="nav-link text-white"> <i class="fa fa-first-order"></i><span
 						class="ms-2">Historico de Pontos</span>

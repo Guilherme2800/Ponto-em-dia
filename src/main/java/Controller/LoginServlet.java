@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 		if (usuarioBucado != null) {
 			req.getSession().setAttribute("usuario", usuarioBucado);
 		}
-		resp.sendRedirect("entrada?acao=ExibirMenu");
+		resp.sendRedirect("entrada?acao=ExibirRegistrar");
 
 	}
 

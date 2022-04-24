@@ -18,7 +18,7 @@ public class RegistrarPonto implements AcaoInterface{
 		Date date = new Date();
 		Usuario user = (Usuario) req.getSession().getAttribute("usuario");
 		PontoRepository.getCurrentInstance().inserirPonto(date, user);
-		return "redirect:entrada?acao=ExibirMenu";
+		return "redirect:entrada?acao=ExibirRegistrar";
 	}
 
 }

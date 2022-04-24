@@ -18,6 +18,9 @@ public class HorasTrabalhadasDiaAnterior extends CalcularHorasTrabalhadas {
 
 		Ponto ponto = pontoService.buscarPontoDiaAnteriorDoUsuario((Usuario) req.getSession().getAttribute("usuario"));
 
+		if(ponto == null) {
+			return "0";
+		}
 		pontoService.validarHorarios(ponto);
 
 		totalMinutos = this.calcularMinutos(ponto);

@@ -26,37 +26,37 @@ public class PontoService {
 				.buscarPontoDiaAnteriorDoUsuario(formatacaoSemHora.format(data.getTime()), user);
 
 	}
-	
-	public List<Ponto> buscarPontoSemanaAtualDoUsuario(Usuario user){
 
-        Date dataAtual = new Date();
+	public List<Ponto> buscarPontoSemanaAtualDoUsuario(Usuario user) {
 
-        GregorianCalendar calendar = new GregorianCalendar();
+		Date dataAtual = new Date();
 
-        calendar.setFirstDayOfWeek(Calendar.SUNDAY);
-        calendar.setTime(dataAtual);
-		
-        calendar.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
+		GregorianCalendar calendar = new GregorianCalendar();
+
+		calendar.setFirstDayOfWeek(Calendar.SUNDAY);
+		calendar.setTime(dataAtual);
+
+		calendar.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
 		String inicioSemana = formatacaoSemHora.format(calendar.getTime());
 
 		calendar.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
 		String fimSemana = formatacaoSemHora.format(calendar.getTime());
-		
+
 		return PontoRepository.getCurrentInstance().buscarPontoSemanaAtualDoUsuario(inicioSemana, fimSemana, user);
 	}
-	
-	public List<Ponto> buscarPontosMesAtualDoUsuario(Usuario user){
-		
+
+	public List<Ponto> buscarPontosMesAtualDoUsuario(Usuario user) {
+
 		Calendar dataAtual = Calendar.getInstance();
-		
+
 		String mesAtual = formatacaoSemdia.format(dataAtual.getTime());
-		
+
 		return PontoRepository.getCurrentInstance().buscarPontosMesAtualDoUsuario(mesAtual, user);
-		
+
 	}
-	
+
 	public Ponto validarHorarios(Ponto ponto) {
-		
+
 		String format = formatacaoSemHora.format(ponto.getData());
 		try {
 			if (ponto.getDataAlmoco() == null) {
@@ -74,12 +74,33 @@ public class PontoService {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		
+
 		return ponto;
-		
+
 	}
-	
-	public void verificarHoraExtra(Ponto ponto) {
+
+	public List<Ponto> buscarHistoricoTodosUsuario() {
+		return PontoRepository.getCurrentInstance().buscarHistoricoTodosUsuario();
+	}
+
+	public List<Ponto> buscarHistoricoDoUsuario(Usuario user) {
+		return PontoRepository.getCurrentInstance().buscarHistoricoDoUsuario(user);
+	}
+
+	public void apagarRegistro(Long user_id, String data) {
+		PontoRepository.getCurrentInstance().apagarRegistro(user_id, data);
+	}
+
+	public void editarRegistro(Long user_id, String data, String horaEntrada, String horaAlmoco, String horaVoltaAlmoco,
+			String saida) {
+		
+		PontoRepository pontoRepository = PontoRepository.getCurrentInstance();
+		
+		Ponto ponto = pontoRepository.buscarPonto(user_id, data);
+		
+		if(ponto != null) {
+			pontoRepository.editarPonto(ponto.getId(), data, horaEntrada, horaAlmoco, horaVoltaAlmoco, saida);
+		}
 		
 	}
 

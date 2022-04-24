@@ -35,7 +35,7 @@
 					class="nav-link text-white" aria-current="page"> <i
 						class="fa fa-home"></i><span class="ms-2">Dashbord</span>
 				</a></li>
-				<li><a href="entrada?acao=RegistrarPonto"
+				<li><a href="entrada?acao=ExibirRegistrar"
 					class="nav-link text-white"> <i class="fa fa-dashboard"></i><span
 						class="ms-2">Registrar Ponto</span>
 				</a></li>

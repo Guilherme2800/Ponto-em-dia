@@ -11,6 +11,15 @@ public class Usuario {
 	private Date dataNascimento;
 	private String cargo;
 	private Integer horasPrevistas;
+	private TipoUsuario tipoUsuario;
+
+	public TipoUsuario getTipoUsuario() {
+		return tipoUsuario;
+	}
+
+	public void setTipoUsuario(TipoUsuario tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;
+	}
 
 	public Integer getHorasPrevistas() {
 		return horasPrevistas;
