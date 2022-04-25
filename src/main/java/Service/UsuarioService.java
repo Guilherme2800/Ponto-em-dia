@@ -11,8 +11,9 @@ import Repository.UsuarioRepository;
 
 public class UsuarioService {
 
-	public void inserirUsuario(String nome, String nascimento, String login, String senha, TipoUsuario tipoUsuario, String cargo) {
-		
+	public void inserirUsuario(String nome, String nascimento, String login, String senha, TipoUsuario tipoUsuario,
+			String cargo, Long cpf) {
+
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		Date data = null;
 		try {
@@ -21,24 +22,24 @@ public class UsuarioService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		UsuarioRepository.getCurrentInstance().inserirUsuario(nome, sdf.format(data), login, senha, tipoUsuario, cargo);
+
+		UsuarioRepository.getCurrentInstance().inserirUsuario(nome, sdf.format(data), login, senha, tipoUsuario, cargo, cpf);
 	}
-	
+
 	public Usuario buscarUsuario(String login, String senha) {
 		return UsuarioRepository.getCurrentInstance().buscarUsuario(login, senha);
 	}
-	
+
 	public Usuario buscarUsuario(Long id) {
 		return UsuarioRepository.getCurrentInstance().buscarUsuario(id);
 	}
-	
+
 	public List<Usuario> buscarTodosUsuario() {
 		return UsuarioRepository.getCurrentInstance().buscarTodosUsuario();
 	}
-	
+
 	public void atualizarPerfil(Long user_id, Long celular, String email, String urlImagem) {
 		UsuarioRepository.getCurrentInstance().atualizarPerfil(user_id, celular, email, urlImagem);
 	}
-	
+
 }

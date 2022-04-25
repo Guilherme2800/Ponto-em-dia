@@ -120,10 +120,18 @@
                                         <input type="text" name="nome" class="form-control" placeholder="Informe o nome" required />
                                         <label class="form-label">Nome</label>
                                     </div>
-
-                                    <div class="form-outline mb-4">
+                                    
+                                    <div class="row mb-4">
+                                        <div class="col">
                                         <input type="date" name="nascimento" class="form-control" required /> <label
                                             class="form-label">Nascimento</label>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-outline">
+                                                <input type="text" name="cpf" class="form-control" placeholder="Informe o cpf" required />
+                                                <label class="form-label">Cpf <small>(Apenas números)</small></label>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="form-outline mb-4">

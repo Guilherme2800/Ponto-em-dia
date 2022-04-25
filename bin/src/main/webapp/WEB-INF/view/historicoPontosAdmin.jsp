@@ -89,7 +89,7 @@
                 <!-- Page Content -->
                 <div class="container center-block" style="overflow-y: auto">
 
-                    <h1>Historico de pontos registrados - Todos usuários</h1>
+                    <h1>Historico de pontos registrados</h1>
                     <hr>
 
                     <table class="table" id="tabelaHistorico">

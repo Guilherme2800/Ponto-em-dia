@@ -86,7 +86,7 @@
                 <!-- Page Content -->
                 <div class="container center-block">
 
-                    <h1>DashBord - Todos usuários</h1>
+                    <h1>DashBord</h1>
                     <hr>
 
                     <c:forEach items="${listaDashbord}" var="dadosUsuario">

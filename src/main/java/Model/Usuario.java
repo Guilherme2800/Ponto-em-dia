@@ -14,6 +14,7 @@ public class Usuario {
 	private String urlImagem;
 	private Long celular;
 	private String email;
+	private Long cpf;
 
 	public Long getCelular() {
 		return celular;
