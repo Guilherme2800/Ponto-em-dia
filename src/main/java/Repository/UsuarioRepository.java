@@ -13,24 +13,26 @@ import Model.TipoUsuario;
 import Model.Usuario;
 
 public class UsuarioRepository {
-	
+
 	private static UsuarioRepository userRepository;
-	
-	private UsuarioRepository() {}
-	
+
+	private UsuarioRepository() {
+	}
+
 	public static UsuarioRepository getCurrentInstance() {
-		if(userRepository == null) {
+		if (userRepository == null) {
 			userRepository = new UsuarioRepository();
 		}
 		return userRepository;
 	}
 
-	public void inserirUsuario(String nome, String nascimento, String login, String senha, TipoUsuario tipoUsuario, String cargo) {
+	public void inserirUsuario(String nome, String nascimento, String login, String senha, TipoUsuario tipoUsuario,
+			String cargo, Long cpf) {
 
 		Connection con = ConnectionFactory.conectar();
 
-		try (PreparedStatement pstm = con
-				.prepareStatement("INSERT INTO usuario (nome,data_nascimento, login, senha, tipo, cargo) VALUES (?, ?, ?, ?, ?, ?)");) {
+		try (PreparedStatement pstm = con.prepareStatement(
+				"INSERT INTO usuario (nome,data_nascimento, login, senha, tipo, cargo, cpf) VALUES (?, ?, ?, ?, ?, ?, ?)");) {
 
 			pstm.setString(1, nome);
 			pstm.setString(2, nascimento);
@@ -38,6 +40,7 @@ public class UsuarioRepository {
 			pstm.setString(4, senha);
 			pstm.setString(5, tipoUsuario.toString());
 			pstm.setString(6, cargo);
+			pstm.setLong(7, cpf);
 
 			pstm.execute();
 
@@ -54,13 +57,14 @@ public class UsuarioRepository {
 		Connection con = ConnectionFactory.conectar();
 		Usuario user = null;
 
-		try (PreparedStatement pstm = con.prepareStatement("SELECT * FROM usuario WHERE login = ? AND senha = ?", Statement.RETURN_GENERATED_KEYS)) {
+		try (PreparedStatement pstm = con.prepareStatement("SELECT * FROM usuario WHERE login = ? AND senha = ?",
+				Statement.RETURN_GENERATED_KEYS)) {
 
 			pstm.setString(1, login);
 			pstm.setString(2, senha);
 
 			try (ResultSet result = pstm.executeQuery();) {
-				while(result.next()) {
+				while (result.next()) {
 					user = new Usuario();
 					user.setId(result.getLong("id"));
 					user.setNome(result.getString("nome"));
@@ -75,10 +79,10 @@ public class UsuarioRepository {
 		}
 
 		ConnectionFactory.desconectar();
-		
+
 		return user;
 	}
-	
+
 	public Usuario buscarUsuario(Long id) {
 
 		Connection con = ConnectionFactory.conectar();
@@ -87,9 +91,9 @@ public class UsuarioRepository {
 		try (PreparedStatement pstm = con.prepareStatement("SELECT * FROM usuario WHERE id = ?")) {
 
 			pstm.setLong(1, id);
-			
+
 			try (ResultSet result = pstm.executeQuery();) {
-				while(result.next()) {
+				while (result.next()) {
 					user = new Usuario();
 					user.setId(result.getLong("id"));
 					user.setNome(result.getString("nome"));
@@ -106,20 +110,21 @@ public class UsuarioRepository {
 		}
 
 		ConnectionFactory.desconectar();
-		
+
 		return user;
 	}
-	
+
 	public List<Usuario> buscarTodosUsuario() {
 
 		Connection con = ConnectionFactory.conectar();
 
 		List<Usuario> listaUsuarios = new ArrayList<>();
-		
-		try (PreparedStatement pstm = con.prepareStatement("SELECT * FROM usuario WHERE tipo != 'admin'", Statement.RETURN_GENERATED_KEYS)) {
+
+		try (PreparedStatement pstm = con.prepareStatement("SELECT * FROM usuario WHERE tipo != 'admin'",
+				Statement.RETURN_GENERATED_KEYS)) {
 
 			try (ResultSet result = pstm.executeQuery();) {
-				while(result.next()) {
+				while (result.next()) {
 					Usuario user = new Usuario();
 					user.setId(result.getLong("id"));
 					user.setNome(result.getString("nome"));
@@ -134,29 +139,29 @@ public class UsuarioRepository {
 		}
 
 		ConnectionFactory.desconectar();
-		
+
 		return listaUsuarios;
 	}
-	
+
 	public void atualizarPerfil(Long user_id, Long celular, String email, String urlImagem) {
-		
+
 		Connection con = ConnectionFactory.conectar();
-		
-		try (PreparedStatement pstm = con.prepareStatement("UPDATE usuario SET celular = ?, email = ?, url_imagem = ? WHERE id = ?")) {
+
+		try (PreparedStatement pstm = con
+				.prepareStatement("UPDATE usuario SET celular = ?, email = ?, url_imagem = ? WHERE id = ?")) {
 
 			pstm.setLong(1, celular);
 			pstm.setString(2, email);
 			pstm.setString(3, urlImagem);
 			pstm.setLong(4, user_id);
 			pstm.execute();
-			
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
 		ConnectionFactory.desconectar();
-		
+
 	}
 
 }

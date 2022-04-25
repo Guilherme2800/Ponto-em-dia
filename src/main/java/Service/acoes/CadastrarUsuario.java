@@ -20,8 +20,9 @@ public class CadastrarUsuario implements AcaoInterface{
 		String senha = req.getParameter("senha");
 		TipoUsuario tipoUsuario = TipoUsuario.valueOf(req.getParameter("tipoUsuario"));
 		String cargo = req.getParameter("cargo");
+		Long cpf = Long.parseLong(req.getParameter("cpf"));
 		
-		new UsuarioService().inserirUsuario(nome, nascimento, login, senha, tipoUsuario, cargo);
+		new UsuarioService().inserirUsuario(nome, nascimento, login, senha, tipoUsuario, cargo, cpf);
 		
 		return "forward:cadastrarUsuario.jsp";
 	}
