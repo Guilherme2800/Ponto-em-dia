@@ -14,6 +14,15 @@ public class Usuario {
 	private String urlImagem;
 	private Long celular;
 	private String email;
+	private Long cpf;
+
+	public Long getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(Long cpf) {
+		this.cpf = cpf;
+	}
 
 	public Long getCelular() {
 		return celular;

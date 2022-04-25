@@ -27,7 +27,14 @@ public class AlterarPerfil implements AcaoInterface{
 		
 		new UsuarioService().atualizarPerfil(user.getId(), celular, email, urlImagem);
 		
+		atualizarUsuarioSession(req, urlImagem);
+		
 		return "redirect:entrada?acao=ExibirPerfil";
+	}
+	
+	private void atualizarUsuarioSession(HttpServletRequest req, String urlImagem) {
+		Usuario user = (Usuario) req.getSession().getAttribute("usuario");
+		user.setUrlImagem(urlImagem);
 	}
 
 	

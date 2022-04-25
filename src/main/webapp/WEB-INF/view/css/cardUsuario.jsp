@@ -53,7 +53,7 @@
 .item .title {
   text-transform:uppercase;
   font-weight:bold;
-  color:#d0d0d0;
+  color:#708090;
   letter-spacing:2px;
   font-size:13px;
 }
