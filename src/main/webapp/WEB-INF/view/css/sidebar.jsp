@@ -9,9 +9,21 @@
 <body>
 <style>
 
+
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@200&family=Source+Sans+Pro:wght@200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
 body {
   overflow-x: hidden;
   background-color: #f5f4f2;
+}
+
+body h1 {
+ font-family: 'Source Sans Pro', sans-serif;
+}
+
+body h4 {
+font-family: 'Open Sans', sans-serif;
 }
 
 #wrapper {

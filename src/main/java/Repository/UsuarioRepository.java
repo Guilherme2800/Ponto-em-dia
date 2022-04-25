@@ -102,6 +102,7 @@ public class UsuarioRepository {
 					user.setUrlImagem(result.getString("url_imagem"));
 					user.setEmail(result.getString("email"));
 					user.setCelular(result.getLong("celular"));
+					user.setCpf(result.getLong("cpf"));
 				}
 			}
 
