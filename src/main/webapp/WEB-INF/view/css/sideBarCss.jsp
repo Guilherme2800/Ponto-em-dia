@@ -182,7 +182,7 @@ a {
         padding: 1rem 1rem 0 0
     }
 
-    .show {
+    .show:not(.modal, .fade) {
         width: calc(var(--nav-width) + 156px)
     }
 
