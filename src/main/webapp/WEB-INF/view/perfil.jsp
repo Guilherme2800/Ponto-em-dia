@@ -16,31 +16,26 @@
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
 <link rel="shortcut icon" href="img/favicon-16x16.png" />
-<%@ include file="css/sidebar.jsp"%>
+
+<link rel="stylesheet"
+	href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
 <%@ include file="css/cardUsuario.jsp"%>
 
 
 </head>
 
-<body>
 
-	<div id="wrapper" class="toggled ">
+<body id="body-pd">
 
-		<!-- Sidebar -->
-		<div id="sidebar-wrapper"
-			class="d-flex flex-column vh-100 flex-shrink-0 p-3 text-white bg-dark">
-			
-			<c:set var="pagina" value="perfil" scope="request" />
-			<%@ include file="opcoesSideBar.jsp"%>  
+	<%@ include file="css/sideBarCss.jsp"%>
+	<%@ include file="scripts/sideBarScript.jsp"%>
 
-			<div class="dropdown">
-				<%@ include file="footerSideBar.jsp"%>  
-			</div>
+    <c:set var="pagina" value="perfil" scope="request" />
+	<%@ include file="sideBarV2.jsp"%>
 
-		</div>
-		<!-- /#sidebar-wrapper -->
-
-		<!-- Page Content -->
+	<!--Container Main start-->
+	<div class="height-100 bg-light">
 		<div class="container center-block">
 
 			<h1>Perfil do usuário</h1>
@@ -118,8 +113,8 @@
 										<div class="col-xs-6">
 											<label for="phone">Url Imagem</label> <input type="text"
 												class="form-control" name="url_imagem"
-												placeholder="enter phone"
-												title="enter your phone number if any."
+												placeholder="Insira a URL de uma imagem"
+												title="Insira a URL de uma imagem"
 												value="${userFull.urlImagem}">
 										</div>
 									</div>
@@ -144,12 +139,11 @@
 
 				</div>
 
-
 			</div>
 		</div>
 	</div>
-
 </body>
+
 <!-- JavaScript Bundle with Popper -->
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

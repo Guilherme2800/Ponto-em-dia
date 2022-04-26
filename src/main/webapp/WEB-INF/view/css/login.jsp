@@ -10,7 +10,7 @@
 <style>
 
 body {
-  background-color: #2a2c3b;
+  background-color: #130f24;
   font-family: "Lato", sans-serif;
 }
 

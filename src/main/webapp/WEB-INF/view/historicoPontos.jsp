@@ -16,31 +16,24 @@
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
 <link rel="shortcut icon" href="img/favicon-16x16.png" />
-<%@ include file="css/sidebar.jsp"%>
+
 <link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"
 	rel="stylesheet">
-
+<link rel="stylesheet"
+	href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 </head>
 
-<body>
 
-	<div id="wrapper" class="toggled ">
+<body id="body-pd">
 
-		<!-- Sidebar -->
-		<div id="sidebar-wrapper"
-			class="d-flex flex-column vh-100 flex-shrink-0 p-3 text-white bg-dark">
-			
-			<c:set var="pagina" value="historico" scope="request" />
-			<%@ include file="opcoesSideBar.jsp"%>
+	<%@ include file="css/sideBarCss.jsp"%>
+	<%@ include file="scripts/sideBarScript.jsp"%>
 
-			<div class="dropdown">
-				<%@ include file="footerSideBar.jsp"%>
-			</div>
+    <c:set var="pagina" value="historico" scope="request" />
+	<%@ include file="sideBarV2.jsp"%>
 
-		</div>
-		<!-- /#sidebar-wrapper -->
-
-		<!-- Page Content -->
+	<!--Container Main start-->
+	<div class="height-100 bg-light">
 		<div class="container center-block" style="overflow-y: auto">
 
 			<h1>Historico de pontos registrados</h1>
@@ -97,8 +90,10 @@
 							});
 		</script>
 	</div>
-
 </body>
+
+
+
 <!-- JavaScript Bundle with Popper -->
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

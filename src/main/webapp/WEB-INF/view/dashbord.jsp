@@ -13,30 +13,23 @@
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
 <link rel="shortcut icon" href="img/favicon-16x16.png" />
-<%@ include file="css/sidebar.jsp"%>
+<link rel="stylesheet"
+	href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
 <%@ include file="css/dashbord.jsp"%>
 </head>
 
-<body>
+<body id="body-pd">
 
-	<div id="wrapper" class="toggled ">
+	<%@ include file="css/sideBarCss.jsp"%>
+	<%@ include file="scripts/sideBarScript.jsp"%>
 
-		<!-- Sidebar -->
-		<div id="sidebar-wrapper"
-			class="d-flex flex-column vh-100 flex-shrink-0 p-3 text-white bg-dark">
-			
-			<c:set var="pagina" value="dashbord" scope="request" />
-			<%@ include file="opcoesSideBar.jsp"%>
-			
-			<div class="dropdown">
-				<%@ include file="footerSideBar.jsp"%>
-			</div>
+    <c:set var="pagina" value="dashbord" scope="request" />
+	<%@ include file="sideBarV2.jsp"%>
 
-		</div>
-		<!-- /#sidebar-wrapper -->
-
-		<!-- Page Content -->
-		<div class="container center-block">
+	<!--Container Main start-->
+	<div class="height-100 bg-light">
+				<div class="container center-block">
 
 			<h1>DashBord</h1>
 			<hr>
@@ -125,14 +118,7 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
-
-
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-		crossorigin="anonymous"></script>
 </body>
 
 </html>
