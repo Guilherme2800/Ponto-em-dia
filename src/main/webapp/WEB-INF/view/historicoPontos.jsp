@@ -29,67 +29,61 @@
 	<%@ include file="css/sideBarCss.jsp"%>
 	<%@ include file="scripts/sideBarScript.jsp"%>
 
-    <c:set var="pagina" value="historico" scope="request" />
+	<c:set var="pagina" value="historico" scope="request" />
 	<%@ include file="sideBarV2.jsp"%>
 
 	<!--Container Main start-->
-	<div class="height-100 bg-light">
-		<div class="container center-block" style="overflow-y: auto">
 
-			<h1>Historico de pontos registrados</h1>
-			<hr>
+	<div class="container center-block" style="overflow-y: auto">
 
-			<table class="table" id="tabelaHistorico">
-				<thead>
+		<h1>Historico de pontos registrados</h1>
+		<hr>
+
+		<table class="table" id="tabelaHistorico">
+			<thead>
+				<tr>
+					<th>Id usuario</th>
+					<th>Data</th>
+					<th>Horario chegada</th>
+					<th>Horario Almoco</th>
+					<th>Horario volta do Almoco</th>
+					<th>Horario saida</th>
+				</tr>
+
+			</thead>
+			<tbody>
+
+				<c:forEach items="${listaPontos}" var="ponto">
 					<tr>
-						<th>Id usuario</th>
-						<th>Data</th>
-						<th>Horario chegada</th>
-						<th>Horario Almoco</th>
-						<th>Horario volta do Almoco</th>
-						<th>Horario saida</th>
+						<td>${ponto.user_id}</td>
+						<td>${ponto.data}</td>
+						<td>${ponto.dataEntrada}</td>
+						<td>${ponto.dataAlmoco}</td>
+						<td>${ponto.dataVoltaAlmoco}</td>
+						<td>${ponto.dataSaida}</td>
 					</tr>
+				</c:forEach>
 
-				</thead>
-				<tbody>
-
-					<c:forEach items="${listaPontos}" var="ponto">
-						<tr>
-							<td>${ponto.user_id}</td>
-							<td>${ponto.data}</td>
-							<td>${ponto.dataEntrada}</td>
-							<td>${ponto.dataAlmoco}</td>
-							<td>${ponto.dataVoltaAlmoco}</td>
-							<td>${ponto.dataSaida}</td>
-						</tr>
-					</c:forEach>
-
-				</tbody>
-			</table>
-			<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
-			<script
-				src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+			</tbody>
+		</table>
+		<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 
 
-		</div>
-		<script>
-			$(document)
-					.ready(
-							function() {
-								$('#tabelaHistorico')
-										.DataTable(
-												{
-													"language" : {
-														"lengthMenu" : "Registros por página:  _MENU_",
-														"zeroRecords" : "Nada encontrado",
-														"info" : "Mostrando página _PAGE_ de _PAGES_",
-														"infoEmpty" : "Nenhum registro disponível",
-														"infoFiltered" : "(filtrado de _MAX_ registros no total)"
-													}
-												});
-							});
-		</script>
 	</div>
+	<script>
+		$(document).ready(function() {
+			$('#tabelaHistorico').DataTable({
+				"language" : {
+					"lengthMenu" : "Registros por página:  _MENU_",
+					"zeroRecords" : "Nada encontrado",
+					"info" : "Mostrando página _PAGE_ de _PAGES_",
+					"infoEmpty" : "Nenhum registro disponível",
+					"infoFiltered" : "(filtrado de _MAX_ registros no total)"
+				}
+			});
+		});
+	</script>
 </body>
 
 

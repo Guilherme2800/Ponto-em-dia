@@ -25,7 +25,7 @@
 		<nav class="nav">
 			<div>
 				<a href="entrada?acao=ExibirRegistrar" class="nav_logo"> <i
-					class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">Ponto em Dia</span>
+					class='bx bx-alarm nav_logo-icon'></i> <span class="nav_logo-name">Ponto em Dia</span>
 				</a>
 				<div class="nav_list">
 				    
@@ -127,13 +127,13 @@
 					      <a href="entrada?acao=ExibirPerfil" class="nav_link active"> <i class='bx bx-user nav_icon'></i> 
 					      <span class="nav_name">Meu perfil</span>
 					      </a>
-					   </c:if>
+					</c:if>
 					   
-					   <c:if test="${ pagina != 'perfil'}">
+					<c:if test="${ pagina != 'perfil'}">
 					      <a href="entrada?acao=ExibirPerfil" class="nav_link"> <i class='bx bx-user nav_icon'></i> 
 					      <span class="nav_name">Meu perfil</span>
 					      </a>
-					   </c:if>
+					</c:if>
 					
 					
 				</div>

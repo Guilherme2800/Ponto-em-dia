@@ -5,7 +5,7 @@
 <html lang="pt-br">
 
 <head>
-<title>Ponto em dia - Cadastrar usuário</title>
+<title>Ponto em dia - Dashbord Admin</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -42,7 +42,7 @@
 			<div id="listaUsuarios">
 				<c:forEach items="${listaDashbord}" var="dadosUsuario">
 
-					<div class="card shadow-lg p-3 mb-5 bg-body rounded ">
+					<div class="card shadow-sm p-3 mb-5 bg-body rounded ">
 						<div class="card-header">
 							<h4>Registros de ${dadosUsuario.nome_user } | id:
 								${dadosUsuario.id_user }</h4>
