@@ -15,9 +15,11 @@
 	rel="stylesheet"
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
-<link rel="shortcut icon" href="img/favicon-16x16.png" />
+
 <link rel="stylesheet"
 	href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+<link rel="shortcut icon" href="img/favicon-16x16.png" />
 <%@ include file="css/cardUsuario.jsp"%>
 </head>
 

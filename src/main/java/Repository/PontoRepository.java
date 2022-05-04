@@ -161,7 +161,7 @@ public class PontoRepository {
 
 		Connection con = ConnectionFactory.conectar();
 
-		try (PreparedStatement pstm = con.prepareStatement("SELECT * FROM ponto INNER JOIN usuario ON ponto.user_id = usuario.id WHERE tipo = 'user'", Statement.RETURN_GENERATED_KEYS)) {
+		try (PreparedStatement pstm = con.prepareStatement("SELECT * FROM ponto INNER JOIN usuario ON ponto.user_id = usuario.id", Statement.RETURN_GENERATED_KEYS)) {
 
 			try (ResultSet result = pstm.executeQuery();) {
 

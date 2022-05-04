@@ -5,7 +5,7 @@
 <html lang="pt-br">
 
 <head>
-<title>Ponto em dia - Registrar Ponto</title>
+<title>Ponto em dia - Meu Perfil</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">

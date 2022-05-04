@@ -5,7 +5,7 @@
 <html lang="pt-br">
 
 <head>
-<title>Ponto em dia - Cadastrar usuário</title>
+<title>Ponto em dia - Dashbord</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -41,7 +41,7 @@
 
 
 			<div id="listaUsuarios">
-				<div class="card shadow-lg p-3 mb-5 bg-body rounded ">
+				<div class="card shadow-sm p-3 mb-5 bg-body rounded ">
 					<div class="card-header">
 						<h4>Total horas trabalhadas</h4>
 					</div>
@@ -97,7 +97,7 @@
 					</div>
 				</div>
 
-				<div class="card shadow-lg p-3 mb-5 bg-body rounded ">
+				<div class="card shadow-sm p-3 mb-5 bg-body rounded ">
 					<div class="card-header">
 						<h4>Horas extras trabalhadas</h4>
 					</div>
