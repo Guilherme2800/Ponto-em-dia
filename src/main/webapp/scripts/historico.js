@@ -1,13 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-<script>
 
 function editar(e) {
 
@@ -34,15 +24,11 @@ $(document).ready(function () {
         $('#tabelaHistorico').DataTable(
                 {
                     "language": {
-                        "lengthMenu": "Registros por página:  _MENU_",
+                        "lengthMenu": "Registros por pÃ¡gina:  _MENU_",
                         "zeroRecords": "Nada encontrado",
-                        "info": "Mostrando página _PAGE_ de _PAGES_",
-                        "infoEmpty": "Nenhum registro disponível",
+                        "info": "Mostrando pÃ¡gina _PAGE_ de _PAGES_",
+                        "infoEmpty": "Nenhum registro disponÃ­vel",
                         "infoFiltered": "(filtrado de _MAX_ registros no total)"
                     }
                 });
     });
-
-</script>
-</body>
-</html>

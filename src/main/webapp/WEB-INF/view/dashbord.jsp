@@ -21,13 +21,11 @@
 
 <link rel="shortcut icon" href="img/favicon-16x16.png" />
 
-<%@ include file="css/dashbord.jsp"%>
+<link rel="stylesheet" href="css/dashbord.css"/>
+<link rel="stylesheet" href="css/sidebar.css"/>
 </head>
 
 <body id="body-pd">
-
-	<%@ include file="css/sideBarCss.jsp"%>
-	<%@ include file="scripts/sideBarScript.jsp"%>
 
 	<c:set var="pagina" value="dashbord" scope="request" />
 	<%@ include file="sideBarV2.jsp"%>
@@ -127,4 +125,5 @@
 	</div>
 </body>
 
+<script src="scripts/sidebar.js"></script>	
 </html>

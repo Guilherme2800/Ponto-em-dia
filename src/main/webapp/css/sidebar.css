@@ -1,13 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-</head>
-<body>
+@charset "ISO-8859-1";
 
-<style>
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
 
 :root {
@@ -190,7 +182,3 @@ a {
         padding-left: calc(var(--nav-width) + 188px)
     }
 }
-</style>
-
-</body>
-</html>

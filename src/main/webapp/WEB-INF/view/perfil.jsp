@@ -20,16 +20,13 @@
 <link rel="stylesheet"
 	href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 
-<%@ include file="css/cardUsuario.jsp"%>
-
+<link rel="stylesheet" href="css/cardUsuario.css"/>
+<link rel="stylesheet" href="css/sidebar.css"/>
 
 </head>
 
 
 <body id="body-pd">
-
-	<%@ include file="css/sideBarCss.jsp"%>
-	<%@ include file="scripts/sideBarScript.jsp"%>
 
     <c:set var="pagina" value="perfil" scope="request" />
 	<%@ include file="sideBarV2.jsp"%>
@@ -149,5 +146,7 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 	crossorigin="anonymous"></script>
+
+<script src="scripts/sidebar.js"></script>	
 
 </html>

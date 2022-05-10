@@ -1,13 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-</head>
-<body>
-
-<script>
 document.addEventListener("DOMContentLoaded", function(event) {
 
 	const showNavbar = (toggleId, navId, bodyId, headerId) =>{
@@ -46,8 +36,3 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 	// Your code to run since DOM is loaded and ready
 	});
-</script>
-
-
-</body>
-</html>
