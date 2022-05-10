@@ -78,13 +78,13 @@
 
                     <c:if test="${ usuario.tipoUsuario  == 'admin'}">
                        <c:if test="${ pagina == 'historicoAdmin'}">
-                          <a href="entrada?acao=HistoricoUsuarioAdmin" class="nav_link active"> <i class='bx bx-folder nav_icon'></i> 
+                          <a href="entrada?acao=ExibirHistoricoAdmin" class="nav_link active"> <i class='bx bx-folder nav_icon'></i> 
 					      <span class="nav_name">Historico - Admin</span>
 					      </a> 
                        </c:if>
                        
                        <c:if test="${ pagina != 'historicoAdmin'}">
-                          <a href="entrada?acao=HistoricoUsuarioAdmin" class="nav_link"> <i class='bx bx-folder nav_icon'></i> 
+                          <a href="entrada?acao=ExibirHistoricoAdmin" class="nav_link"> <i class='bx bx-folder nav_icon'></i> 
 					      <span class="nav_name">Historico - Admin</span>
 					      </a> 
                        </c:if>
@@ -93,13 +93,13 @@
 					<!-- Pagina de historico de pontos individual --> 
 					
 					<c:if test="${ pagina == 'historico'}">
-					   <a href="entrada?acao=HistoricoUsuario" class="nav_link active"> <i class='bx bx-folder nav_icon'></i>
+					   <a href="entrada?acao=ExibirHistoricoUsuario" class="nav_link active"> <i class='bx bx-folder nav_icon'></i>
 					   <span class="nav_name">Historico</span>
 					   </a>
 					</c:if>
 					
 					<c:if test="${ pagina != 'historico'}">
-					   <a href="entrada?acao=HistoricoUsuario" class="nav_link"> <i class='bx bx-folder nav_icon'></i>
+					   <a href="entrada?acao=ExibirHistoricoUsuario" class="nav_link"> <i class='bx bx-folder nav_icon'></i>
 					   <span class="nav_name">Historico</span>
 					   </a>
 					</c:if>

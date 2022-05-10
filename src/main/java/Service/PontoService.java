@@ -73,12 +73,12 @@ public class PontoService {
 
 	}
 
-	public List<Ponto> buscarHistoricoTodosUsuario() {
-		return PontoRepository.getCurrentInstance().buscarHistoricoTodosUsuario();
+	public List<Ponto> buscarHistoricoTodosUsuario(String dataInicial, String dataFinal) {
+		return PontoRepository.getCurrentInstance().buscarHistoricoTodosUsuario(dataInicial, dataFinal);
 	}
 
-	public List<Ponto> buscarHistoricoDoUsuario(Usuario user) {
-		return PontoRepository.getCurrentInstance().buscarHistoricoDoUsuario(user);
+	public List<Ponto> buscarHistoricoDoUsuario(Usuario user, String dataInicial, String dataFinal) {
+		return PontoRepository.getCurrentInstance().buscarHistoricoDoUsuario(user, dataInicial, dataFinal);
 	}
 
 	public void apagarRegistro(Long user_id, String data) {

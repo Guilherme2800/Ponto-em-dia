@@ -121,7 +121,7 @@ public class UsuarioRepository {
 
 		List<Usuario> listaUsuarios = new ArrayList<>();
 
-		try (PreparedStatement pstm = con.prepareStatement("SELECT * FROM usuario WHERE tipo != 'admin'",
+		try (PreparedStatement pstm = con.prepareStatement("SELECT * FROM usuario",
 				Statement.RETURN_GENERATED_KEYS)) {
 
 			try (ResultSet result = pstm.executeQuery();) {

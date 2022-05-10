@@ -121,15 +121,17 @@ public class PontoRepository {
 
 	}
 
-	public List<Ponto> buscarHistoricoDoUsuario(Usuario user) {
+	public List<Ponto> buscarHistoricoDoUsuario(Usuario user, String dataInicial, String dataFinal) {
 
 		List<Ponto> pontosList = new ArrayList<>();
 
 		Connection con = ConnectionFactory.conectar();
 
-		try (PreparedStatement pstm = con.prepareStatement("SELECT * FROM ponto WHERE user_id = ?")) {
+		try (PreparedStatement pstm = con.prepareStatement("SELECT * FROM ponto WHERE user_id = ? and data >= ? and data <= ?")) {
 
 			pstm.setLong(1, user.getId());
+			pstm.setString(2, dataInicial);
+			pstm.setString(3, dataFinal);
 			try (ResultSet result = pstm.executeQuery();) {
 
 				while (result.next()) {
@@ -155,14 +157,16 @@ public class PontoRepository {
 
 	}
 	
-	public List<Ponto> buscarHistoricoTodosUsuario() {
+	public List<Ponto> buscarHistoricoTodosUsuario(String dataInicial, String dataFinal) {
 
 		List<Ponto> pontosList = new ArrayList<>();
 
 		Connection con = ConnectionFactory.conectar();
 
-		try (PreparedStatement pstm = con.prepareStatement("SELECT * FROM ponto INNER JOIN usuario ON ponto.user_id = usuario.id", Statement.RETURN_GENERATED_KEYS)) {
+		try (PreparedStatement pstm = con.prepareStatement("SELECT * FROM ponto INNER JOIN usuario ON ponto.user_id = usuario.id WHERE data >= ? and data <= ?", Statement.RETURN_GENERATED_KEYS)) {
 
+			pstm.setString(1, dataInicial);
+			pstm.setString(2, dataFinal);
 			try (ResultSet result = pstm.executeQuery();) {
 
 				while (result.next()) {

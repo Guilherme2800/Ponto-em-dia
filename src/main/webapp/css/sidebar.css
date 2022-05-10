@@ -21,6 +21,7 @@
 
 body {
     position: relative;
+    background-color: #f3f3f4;
     margin: var(--header-height) 0 0 0;
     padding: 0 1rem;
     font-family: var(--body-font);
@@ -42,7 +43,7 @@ a {
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
-    background-color: var(--white-color);
+    background-color: #f3f3f4;
     z-index: var(--z-fixed);
     transition: .5s
 }
