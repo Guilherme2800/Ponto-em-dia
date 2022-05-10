@@ -32,7 +32,7 @@
 	<%@ include file="sideBarV2.jsp"%>
 
 	<!--Container Main start-->
-	<div class="height-100 bg-light">
+	<div class="height-100">
 		<div class="container center-block">
 
 			<h1>DashBord - Todos usuários</h1>
@@ -41,8 +41,8 @@
 			<div id="listaUsuarios">
 				<c:forEach items="${listaDashbord}" var="dadosUsuario">
 
-					<div class="card shadow-sm p-3 mb-5 bg-body rounded ">
-						<div class="card-header">
+					<div class="card">
+						<div class="card-header headerCard">
 							<h4>Registros de ${dadosUsuario.nome_user } | id:
 								${dadosUsuario.id_user }</h4>
 						</div>

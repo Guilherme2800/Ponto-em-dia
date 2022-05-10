@@ -90,21 +90,25 @@
 
 	</div>
 	<script>
-		$(document)
-				.ready(
-						function() {
-							$('#tabelaHistorico')
-									.DataTable(
-											{
-												"language" : {
-													"lengthMenu" : "Registros por página:  _MENU_",
-													"zeroRecords" : "Nada encontrado - Utilize o formulário acima",
-													"info" : "Mostrando página _PAGE_ de _PAGES_",
-													"infoEmpty" : "Nenhum registro disponível",
-													"infoFiltered" : "(filtrado de _MAX_ registros no total)"
-												}
-											});
-						});
+	$(document).ready(function() {
+		$('#tabelaHistorico').DataTable(
+			{
+				"language": {
+				"lengthMenu": "Registros por página:  _MENU_",
+				"zeroRecords": "Nada encontrado - Utilize o formulário acima",
+				"info": "Mostrando página _PAGE_ de _PAGES_",
+				"infoEmpty": "Nenhum registro disponível",
+				"infoFiltered": "(filtrado de _MAX_ registros no total)",
+				"search": "Pesquisar",
+				"paginate": {
+					"next": "Próximo",
+					"previous": "Anterior",
+					"first": "Primeiro",
+					"last": "Último"
+				},
+			}
+			});
+	});
 	</script>
 </body>
 

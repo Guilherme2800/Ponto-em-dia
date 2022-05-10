@@ -31,7 +31,7 @@
 	<%@ include file="sideBarV2.jsp"%>
 
 	<!--Container Main start-->
-	<div class="height-100 bg-light">
+	<div class="height-100" >
 		<div class="container center-block">
 
 			<h1>DashBord</h1>
@@ -39,8 +39,8 @@
 
 
 			<div id="listaUsuarios">
-				<div class="card shadow-sm p-3 mb-5 bg-body rounded ">
-					<div class="card-header">
+				<div class="card">
+					<div class="card-header headerCard">
 						<h4>Total horas trabalhadas</h4>
 					</div>
 					<div class="card-body">
@@ -95,8 +95,8 @@
 					</div>
 				</div>
 
-				<div class="card shadow-sm p-3 mb-5 bg-body rounded ">
-					<div class="card-header">
+				<div class="card">
+					<div class="card-header headerCard">
 						<h4>Horas extras trabalhadas</h4>
 					</div>
 					<div class="card-body">
