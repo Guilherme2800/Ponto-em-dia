@@ -1,23 +1,49 @@
 package Service.acoes;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.jsp.PageContext;
 
 import Model.Ponto;
 import Service.PontoService;
 
-public class HistoricoUsuarioAdmin implements AcaoInterface{
+public class HistoricoUsuarioAdmin implements AcaoInterface {
 
 	@Override
 	public String executar(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		List<Ponto> pontosUsuario = new PontoService().buscarHistoricoTodosUsuario();
+
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+		String dataInicialString = (String) req.getParameter("dataInicial");
+		String dataFinalString = (String) req.getParameter("dataFinal");
+
+		if (dataInicialString == null || dataInicialString.isEmpty()
+				|| (dataFinalString == null || dataFinalString.isEmpty())) {
+			return "forward:historicoPontosAdmin.jsp";
+		}
+
+		Date dataInicial = null;
+		Date dataFinal = null;
+		try {
+			dataInicial = sdf.parse(dataInicialString);
+			dataFinal = sdf.parse(dataFinalString);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+		List<Ponto> pontosUsuario = new PontoService().buscarHistoricoTodosUsuario(sdf.format(dataInicial),
+				sdf.format(dataFinal));
 		req.setAttribute("listaPontos", pontosUsuario);
+		req.setAttribute("dataInicio", sdf.format(dataInicial));
+		req.setAttribute("dataFinal", sdf.format(dataFinal));
 		return "forward:historicoPontosAdmin.jsp";
 	}
-	
+
 }

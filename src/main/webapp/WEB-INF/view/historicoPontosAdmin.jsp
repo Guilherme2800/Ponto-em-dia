@@ -36,43 +36,59 @@
 		<h1>Historico de pontos registrados - Todos usuários</h1>
 		<hr>
 
-		<table class="table" id="tabelaHistorico">
-			<thead>
-				<tr>
-					<th>Id usuario</th>
-					<th>Data</th>
-					<th>Horario chegada</th>
-					<th>Horario Almoco</th>
-					<th>Horario volta do Almoco</th>
-					<th>Horario saida</th>
-					<th>Ação</th>
-				</tr>
+		<div class="shadow-sm p-3 mb-5 bg-body rounded inputDatas">
+			<label><b>Filtragem de dados</b></label>
+			<form action="entrada?acao=HistoricoUsuarioAdmin" method="post">
+				<label>Data inicial: </label> <input type="date" name="dataInicial">
+				<label>Data final: <input type="date" name="dataFinal">
+					<input type="submit" value="Pesquisar" class="btn btn-success">
+				</label>
+			</form>
+		</div>
 
-			</thead>
-			<tbody>
-
-				<c:forEach items="${listaPontos}" var="ponto">
+		<div class="shadow-sm p-3 mb-5 bg-body rounded tabelaPontos">
+			<c:if test="${dataInicio != ''}">
+				<small><b>Periodo: ${dataInicio} até ${dataFinal}</b></small>
+				<br>
+			</c:if>
+			<br>
+			<table class="table" id="tabelaHistoricoAdmin">
+				<thead>
 					<tr>
-						<td>${ponto.user_id}</td>
-						<td>${ponto.data}</td>
-						<td>${ponto.dataEntrada}</td>
-						<td>${ponto.dataAlmoco}</td>
-						<td>${ponto.dataVoltaAlmoco}</td>
-						<td>${ponto.dataSaida}</td>
-
-						<td><button type="button" class="btn btn-outline-success"
-								data-bs-toggle="modal" data-bs-target="#editar"
-								onclick="editar(this)">Edit</button>
-							<button type="button" class="btn btn-outline-danger"
-								data-bs-toggle="modal" data-bs-target="#remover"
-								onclick="editar(this)">Remove</button></td>
-
+						<th>Id usuario</th>
+						<th>Data</th>
+						<th>Horario chegada</th>
+						<th>Horario Almoco</th>
+						<th>Horario volta do Almoco</th>
+						<th>Horario saida</th>
+						<th>Ação</th>
 					</tr>
-				</c:forEach>
 
-			</tbody>
-		</table>
+				</thead>
+				<tbody>
 
+					<c:forEach items="${listaPontos}" var="ponto">
+						<tr>
+							<td>${ponto.user_id}</td>
+							<td>${ponto.data}</td>
+							<td>${ponto.dataEntrada}</td>
+							<td>${ponto.dataAlmoco}</td>
+							<td>${ponto.dataVoltaAlmoco}</td>
+							<td>${ponto.dataSaida}</td>
+
+							<td><button type="button" class="btn btn-outline-success"
+									data-bs-toggle="modal" data-bs-target="#editar"
+									onclick="editar(this)">Edit</button>
+								<button type="button" class="btn btn-outline-danger"
+									data-bs-toggle="modal" data-bs-target="#remover"
+									onclick="editar(this)">Remove</button></td>
+
+						</tr>
+					</c:forEach>
+
+				</tbody>
+			</table>
+		</div>
 
 		<div class="modal fade" id="editar" tabindex="-1"
 			aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -140,13 +156,14 @@
 			</div>
 		</div>
 	</div>
-
+	<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
 	<script>
 		$(document).ready(function() {
-			$('#tabelaHistorico').DataTable({
+			$('#tabelaHistoricoAdmin').DataTable({
 				"language" : {
 					"lengthMenu" : "Registros por página:  _MENU_",
-					"zeroRecords" : "Nada encontrado",
+					"zeroRecords" : "Nada encontrado - Utilize o formulário acima",
 					"info" : "Mostrando página _PAGE_ de _PAGES_",
 					"infoEmpty" : "Nenhum registro disponível",
 					"infoFiltered" : "(filtrado de _MAX_ registros no total)"

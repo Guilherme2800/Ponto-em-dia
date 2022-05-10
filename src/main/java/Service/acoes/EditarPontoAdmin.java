@@ -1,11 +1,14 @@
 package Service.acoes;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Model.Ponto;
 import Service.PontoService;
 
 public class EditarPontoAdmin implements AcaoInterface{
@@ -20,9 +23,14 @@ public class EditarPontoAdmin implements AcaoInterface{
 		String horaVoltaAlmoco = req.getParameter("horaVoltaAlmoco");
 		String horaSaida = req.getParameter("horaSaida");
 		
+		List<Ponto> pontos = new ArrayList<>();
+		
+
+		 
+		 
 		new PontoService().editarRegistro(user_id, data, horaEntrada, horaAlmoco, horaVoltaAlmoco, horaSaida);
 		
-		return "redirect:entrada?acao=HistoricoUsuarioAdmin";
+		return "forward:historicoPontosAdmin.jsp";
 	}
 
 	
