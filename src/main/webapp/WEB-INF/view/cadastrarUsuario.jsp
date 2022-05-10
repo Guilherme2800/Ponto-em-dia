@@ -32,7 +32,7 @@
 	<%@ include file="sideBarV2.jsp"%>
 
 	<!--Container Main start-->
-	<div class="height-100 bg-light">
+	<div class="height-100">
 		<div class="container center-block">
 
 			<h1>Cadastrar Usuário</h1>

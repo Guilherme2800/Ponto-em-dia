@@ -23,14 +23,9 @@ public class EditarPontoAdmin implements AcaoInterface{
 		String horaVoltaAlmoco = req.getParameter("horaVoltaAlmoco");
 		String horaSaida = req.getParameter("horaSaida");
 		
-		List<Ponto> pontos = new ArrayList<>();
-		
-
-		 
-		 
 		new PontoService().editarRegistro(user_id, data, horaEntrada, horaAlmoco, horaVoltaAlmoco, horaSaida);
 		
-		return "forward:historicoPontosAdmin.jsp";
+		return new HistoricoUsuarioAdmin().executar(req, resp);
 	}
 
 	

@@ -15,8 +15,9 @@ public class ApagarRegistroAdmin implements AcaoInterface{
 		
 		Long user_id = Long.parseLong(req.getParameter("user_id"));
 		String data = req.getParameter("data");
-		new PontoService().apagarRegistro(user_id, data);;
-		return "redirect:entrada?acao=HistoricoUsuarioAdmin";
+		new PontoService().apagarRegistro(user_id, data);
+		
+		return new HistoricoUsuarioAdmin().executar(req, resp);
 	}
 
 }

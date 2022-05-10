@@ -90,6 +90,7 @@
 			</table>
 		</div>
 
+        <!-- Modal Editar -->
 		<div class="modal fade" id="editar" tabindex="-1"
 			aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -117,6 +118,9 @@
 								name="horaVoltaAlmoco"> <label>Horario saída: </label> <input
 								required id="horaSaida" class="form-control border-0"
 								type="time" name="horaSaida">
+								
+								<input hidden="" name="dataInicial" value="${dataInicio}">
+								<input hidden="" name="dataFinal" value="${dataFinal}">
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-danger"
@@ -149,6 +153,8 @@
 								class="form-control border-0 user_id" type="text" name="user_id">
 							<input hidden="" id="data_remove" class="form-control border-0"
 								type="text" name="data">
+							<input hidden="" name="dataInicial" value="${dataInicio}">
+							<input hidden="" name="dataFinal" value="${dataFinal}">
 							<button class="btn btn-danger" type="submit" name="submit">Apagar</button>
 						</form>
 					</div>
@@ -166,7 +172,14 @@
 					"zeroRecords" : "Nada encontrado - Utilize o formulário acima",
 					"info" : "Mostrando página _PAGE_ de _PAGES_",
 					"infoEmpty" : "Nenhum registro disponível",
-					"infoFiltered" : "(filtrado de _MAX_ registros no total)"
+					"infoFiltered" : "(filtrado de _MAX_ registros no total)",
+					"search":"Pesquisar",
+					"paginate": {
+				        "next": "Próximo",
+				        "previous": "Anterior",
+				        "first": "Primeiro",
+				        "last": "Último"
+				    },
 				}
 			});
 		});

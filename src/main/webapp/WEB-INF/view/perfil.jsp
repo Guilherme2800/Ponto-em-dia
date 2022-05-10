@@ -22,6 +22,7 @@
 
 <link rel="stylesheet" href="css/cardUsuario.css"/>
 <link rel="stylesheet" href="css/sidebar.css"/>
+<link rel="stylesheet" href="css/perfil.css"/>
 
 </head>
 
@@ -32,7 +33,7 @@
 	<%@ include file="sideBarV2.jsp"%>
 
 	<!--Container Main start-->
-	<div class="height-100 bg-light">
+	<div class="height-100">
 		<div class="container center-block">
 
 			<h1>Perfil do usuário</h1>
