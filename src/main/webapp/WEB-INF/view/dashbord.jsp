@@ -34,7 +34,7 @@
 	<div class="height-100" >
 		<div class="container center-block">
 
-			<h1>DashBord</h1>
+			<h1>DashBord - ${usuario.nome}</h1>
 			<hr>
 
 
