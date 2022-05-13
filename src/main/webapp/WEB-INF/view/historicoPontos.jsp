@@ -37,7 +37,7 @@
 
 	<div class="container center-block">
 
-		<h1>Historico de pontos registrados</h1>
+		<h1>Historico de pontos registrados - ${usuario.nome}</h1>
 		<hr>
 		<div class="shadow-sm p-3 mb-5 bg-body rounded inputDatas">
 			<label><b>Filtragem de dados</b></label>

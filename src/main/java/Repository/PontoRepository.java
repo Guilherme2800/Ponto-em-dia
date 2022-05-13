@@ -41,7 +41,7 @@ public class PontoRepository {
 				try (PreparedStatement pstm = con
 						.prepareStatement("INSERT INTO ponto (" + coluna + ", user_id, data) VALUES (?, ?, ?)")) {
 
-					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 					pstm.setString(1, sdf.format(dataHora));
 					pstm.setLong(2, user.getId());
 					pstm.setString(3, new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
@@ -55,7 +55,7 @@ public class PontoRepository {
 
 				try (PreparedStatement pstm = con.prepareStatement("UPDATE ponto SET " + coluna + "=? WHERE id=?")) {
 
-					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+					SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 					pstm.setString(1, sdf.format(dataHora));
 					pstm.setLong(2, idPonto);
 					pstm.execute();
