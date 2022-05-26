@@ -1,4 +1,4 @@
-package Service.acoes;
+package service.acoes;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -10,9 +10,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Model.Ponto;
-import Model.Usuario;
-import Service.PontoService;
+import model.Ponto;
+import model.Usuario;
+import service.PontoService;
 
 public class HistoricoUsuario implements AcaoInterface{
 	

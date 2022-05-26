@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.io.IOException;
 
@@ -11,8 +11,8 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Model.TipoUsuario;
-import Model.Usuario;
+import model.TipoUsuario;
+import model.Usuario;
 
 @WebFilter("/entrada")
 public class PermissaoFilter implements Filter {

@@ -1,15 +1,14 @@
-package Service;
+package service;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import Model.Ponto;
-import Model.Usuario;
-import Repository.PontoRepository;
+import model.Ponto;
+import model.Usuario;
+import repository.PontoRepository;
 
 public class PontoService {
 
@@ -54,6 +53,10 @@ public class PontoService {
 		return PontoRepository.getCurrentInstance().buscarPontosMesAtualDoUsuario(mesAtual, user);
 
 	}
+	
+	public List<Ponto> buscarPontosIntervaloDoUsuario(Usuario user, String startDate, String endDate) {
+		return PontoRepository.getCurrentInstance().buscarPontosIntervaloDoUsuario(user, startDate, endDate);
+	}
 
 	public Ponto validarHorarios(Ponto ponto) {
 
@@ -73,18 +76,49 @@ public class PontoService {
 
 	}
 
+	/**
+	 * Método que busca o histórico de pontos de todos os usuários do sistema
+	 * 
+	 * @param dataInicial
+	 * @param dataFinal
+	 * @return
+	 */
 	public List<Ponto> buscarHistoricoTodosUsuario(String dataInicial, String dataFinal) {
 		return PontoRepository.getCurrentInstance().buscarHistoricoTodosUsuario(dataInicial, dataFinal);
 	}
 
+	/**
+	 * Método que busca o historico de pontos do usuário autenticado
+	 * 
+	 * @param user
+	 * @param dataInicial
+	 * @param dataFinal
+	 * @return
+	 */
 	public List<Ponto> buscarHistoricoDoUsuario(Usuario user, String dataInicial, String dataFinal) {
 		return PontoRepository.getCurrentInstance().buscarHistoricoDoUsuario(user, dataInicial, dataFinal);
 	}
 
+	/**
+	 * Método que remove o registro do ponto de um usuário
+	 * 
+	 * @param user_id
+	 * @param data
+	 */
 	public void apagarRegistro(Long user_id, String data) {
 		PontoRepository.getCurrentInstance().apagarRegistro(user_id, data);
 	}
 
+	/**
+	 * Método que edita o registro de um ponto do usuário
+	 * 
+	 * @param user_id
+	 * @param data
+	 * @param horaEntrada
+	 * @param horaAlmoco
+	 * @param horaVoltaAlmoco
+	 * @param saida
+	 */
 	public void editarRegistro(Long user_id, String data, String horaEntrada, String horaAlmoco, String horaVoltaAlmoco,
 			String saida) {
 

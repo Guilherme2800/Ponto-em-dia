@@ -1,4 +1,4 @@
-package Service.acoes;
+package service.acoes;
 
 import java.io.IOException;
 

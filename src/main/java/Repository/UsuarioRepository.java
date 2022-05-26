@@ -1,4 +1,4 @@
-package Repository;
+package repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,8 +9,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import Model.TipoUsuario;
-import Model.Usuario;
+import model.TipoUsuario;
+import model.Usuario;
 
 public class UsuarioRepository {
 

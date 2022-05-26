@@ -38,6 +38,16 @@
 			<h1>DashBord - Todos usuários</h1>
 			<hr>
 
+			<div class="shadow-sm p-3 mb-5 bg-body rounded inputDatas">
+				<label><b>Filtragem de dados</b></label>
+				<form action="entrada?acao=DashbordAdmin" method="post">
+					<label>Data inicial: </label> <input type="date" name="dataInicial">
+					<label>Data final: <input type="date" name="dataFinal">
+						<input type="submit" value="Pesquisar" class="btn btn-success">
+					</label>
+				</form>
+			</div>
+
 			<div id="listaUsuarios">
 				<c:forEach items="${listaDashbord}" var="dadosUsuario">
 
@@ -52,7 +62,7 @@
 									<div class="col-md-4 col-xl-4">
 										<div class="card bg-c-blue order-card">
 											<div class="card-block">
-												<h6 class="m-b-20">Total horas trabalhadas - Mês atual</h6>
+												<h6 class="m-b-20">Total horas trabalhadas</h6>
 												<h2 class="text-right">
 													<i class="fa fa-cart-plus f-left"></i><span>${dadosUsuario.totalHorasMesAtual}
 														Horas</span>
@@ -67,8 +77,7 @@
 									<div class="col-md-4 col-xl-4">
 										<div class="card bg-c-pink order-card">
 											<div class="card-block">
-												<h6 class="m-b-20">Total horas extras trabalhadas - Mês
-													atual</h6>
+												<h6 class="m-b-20">Total horas extras trabalhadas</h6>
 												<h2 class="text-right">
 													<i class="fa fa-rocket f-left"></i><span>${dadosUsuario.totalHorasExtrasMesAtual}
 														Horas</span>

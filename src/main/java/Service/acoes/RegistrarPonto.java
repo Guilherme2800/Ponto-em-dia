@@ -1,4 +1,4 @@
-package Service.acoes;
+package service.acoes;
 
 import java.io.IOException;
 import java.util.Date;
@@ -7,8 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Model.Usuario;
-import Repository.PontoRepository;
+import model.Usuario;
+import repository.PontoRepository;
 
 public class RegistrarPonto implements AcaoInterface{
 

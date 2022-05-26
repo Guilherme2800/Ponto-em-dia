@@ -1,4 +1,4 @@
-package Repository;
+package repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import Model.Ponto;
-import Model.Usuario;
+import model.Ponto;
+import model.Usuario;
 
 public class PontoRepository {
 
@@ -28,6 +28,12 @@ public class PontoRepository {
 		return pontoRepository;
 	}
 
+	/**
+	 * Método que registra um ponto no sistema
+	 * 
+	 * @param dataHora
+	 * @param user
+	 */
 	public void inserirPonto(Date dataHora, Usuario user) {
 
 		String coluna = verificarPontoParaInserir(user);
@@ -235,9 +241,10 @@ public class PontoRepository {
 		Connection con = ConnectionFactory.conectar();
 
 		try (PreparedStatement pstm = con.prepareStatement(
-				"SELECT * FROM ponto WHERE user_id = ? and data = '" + diaAnterior + "'")) {
+				"SELECT * FROM ponto WHERE user_id = ? and data = ?")) {
 
 			pstm.setLong(1, user.getId());
+			pstm.setString(2, diaAnterior);
 			try (ResultSet result = pstm.executeQuery();) {
 
 				while (result.next()) {
@@ -267,10 +274,11 @@ public class PontoRepository {
 
 		Connection con = ConnectionFactory.conectar();
 
-		try (PreparedStatement pstm = con.prepareStatement("SELECT * FROM ponto WHERE user_id = ? and data >= '"
-				+ inicioSemana + "' and data <= '" + fimSemana + "'")) {
+		try (PreparedStatement pstm = con.prepareStatement("SELECT * FROM ponto WHERE user_id = ? and data >= ? and data <= ?")) {
 
 			pstm.setLong(1, user.getId());
+			pstm.setString(2, inicioSemana);
+			pstm.setString(3, fimSemana);
 			try (ResultSet result = pstm.executeQuery();) {
 
 				while (result.next()) {
@@ -335,10 +343,10 @@ public class PontoRepository {
 
 		Ponto ponto = null;
 		
-		try (PreparedStatement pstm = con.prepareStatement("SELECT * FROM ponto where user_id = ? and data = '"+data+"'")) {
+		try (PreparedStatement pstm = con.prepareStatement("SELECT * FROM ponto where user_id = ? and data = ?")) {
 
 			pstm.setLong(1, user_id);
-			
+			pstm.setString(2, data);
 			try(ResultSet result = pstm.executeQuery();){
 				
 				while(result.next()) {
@@ -384,9 +392,10 @@ public class PontoRepository {
 
 		Connection con = ConnectionFactory.conectar();
 
-		try (PreparedStatement pstm = con.prepareStatement("DELETE FROM ponto WHERE user_id = ? AND data = '"+data+"'")) {
+		try (PreparedStatement pstm = con.prepareStatement("DELETE FROM ponto WHERE user_id = ? AND data = ?")) {
 
 			pstm.setLong(1, user_id);
+			pstm.setString(2, data);
 			pstm.execute();
 
 		} catch (Exception e) {
@@ -395,5 +404,40 @@ public class PontoRepository {
 
 		ConnectionFactory.desconectar();
 		
+	}
+
+	public List<Ponto> buscarPontosIntervaloDoUsuario(Usuario user, String startDate, String endDate) {
+		List<Ponto> pontosList = new ArrayList<>();
+
+		Connection con = ConnectionFactory.conectar();
+
+		try (PreparedStatement pstm = con.prepareStatement(
+				"SELECT * FROM ponto WHERE user_id = ? and data >= ? and data <= ?")) {
+
+			pstm.setLong(1, user.getId());
+			pstm.setString(2, startDate);
+			pstm.setString(3, endDate);
+			try (ResultSet result = pstm.executeQuery();) {
+
+				while (result.next()) {
+					Ponto ponto = new Ponto();
+					ponto.setUser_id(result.getLong("user_id"));
+					ponto.setData(result.getDate("data"));
+					ponto.setDataEntrada(result.getTime("data_hora_entrada"));
+					ponto.setDataAlmoco(result.getTime("data_hora_almoco"));
+					ponto.setDataVoltaAlmoco(result.getTime("data_hora_volta_almoco"));
+					ponto.setDataSaida(result.getTime("data_hora_saida"));
+					pontosList.add(ponto);
+				}
+
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		ConnectionFactory.desconectar();
+
+		return pontosList;
 	}
 }
