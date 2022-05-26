@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.io.IOException;
 
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Service.acoes.AcaoInterface;
+import service.acoes.AcaoInterface;
 
 @WebServlet("/entrada")
 public class EntradaServlet extends HttpServlet {
@@ -25,7 +25,7 @@ public class EntradaServlet extends HttpServlet {
 		String metodo = null;
 		
 		try {
-			AcaoInterface newInstance = (AcaoInterface) Class.forName("Service.acoes." + acao).newInstance();
+			AcaoInterface newInstance = (AcaoInterface) Class.forName("service.acoes." + acao).newInstance();
 			metodo = newInstance.executar(req, resp);
 
 		} catch (ClassNotFoundException e) {

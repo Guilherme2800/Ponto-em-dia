@@ -1,12 +1,12 @@
-package Service.CalcularHorasTrabalhadas;
+package service.calcularHorasTrabalhadas;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import javax.servlet.http.HttpServletRequest;
 
-import Model.Ponto;
-import Model.Usuario;
+import model.Ponto;
+import model.Usuario;
 
 public class HorasTrabalhadasDiaAnterior extends CalcularHorasTrabalhadas {
 
