@@ -7,6 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import model.Ponto;
 import service.PontoService;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public abstract class CalcularHorasTrabalhadas {
 
 	protected PontoService pontoService = new PontoService();

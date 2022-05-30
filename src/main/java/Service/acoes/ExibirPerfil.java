@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import model.Usuario;
 import service.UsuarioService;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class ExibirPerfil implements AcaoInterface{
 
 	@Override

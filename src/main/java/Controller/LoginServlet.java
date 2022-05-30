@@ -11,6 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import model.Usuario;
 import service.UsuarioService;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 

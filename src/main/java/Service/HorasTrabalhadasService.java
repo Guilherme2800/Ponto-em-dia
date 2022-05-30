@@ -8,6 +8,11 @@ import model.Usuario;
 import service.calcularHorasTrabalhadas.HorasExtrasMesAtual;
 import service.calcularHorasTrabalhadas.HorasTrabalhadasMesAtual;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class HorasTrabalhadasService {
 
 	/**

@@ -9,11 +9,15 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.jsp.PageContext;
 
 import model.Ponto;
 import service.PontoService;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class HistoricoUsuarioAdmin implements AcaoInterface {
 
 	@Override

@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class HorasTrabalhadas {
 
 	private Long id_user;

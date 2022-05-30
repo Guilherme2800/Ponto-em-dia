@@ -8,6 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.PontoService;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class EditarPontoAdmin implements AcaoInterface{
 
 	@Override

@@ -12,6 +12,11 @@ import java.util.List;
 import model.Ponto;
 import model.Usuario;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class PontoRepository {
 
 	private long idPonto;

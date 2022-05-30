@@ -9,6 +9,11 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 @WebFilter("/entrada")
 public class CronometragemFilter implements Filter{
 

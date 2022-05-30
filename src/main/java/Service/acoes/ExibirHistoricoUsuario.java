@@ -6,6 +6,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class ExibirHistoricoUsuario implements AcaoInterface{
 
 	@Override
