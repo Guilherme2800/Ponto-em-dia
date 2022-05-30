@@ -1,4 +1,4 @@
-package service.acoes;
+package Service.acoes;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -9,7 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import service.HorasTrabalhadasService;
+import Service.HorasTrabalhadasService;
 
 /**
  * Classe para realizar processamento do dashBord 
