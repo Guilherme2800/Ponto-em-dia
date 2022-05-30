@@ -1,4 +1,4 @@
-package service.calcularHorasTrabalhadas;
+package Service.CalcularHorasTrabalhadas;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -6,8 +6,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import model.Ponto;
-import model.Usuario;
+import Model.Ponto;
+import Model.Usuario;
 
 /**
  * 

@@ -1,12 +1,12 @@
-package service;
+package Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import model.HorasTrabalhadas;
-import model.Usuario;
-import service.calcularHorasTrabalhadas.HorasExtrasMesAtual;
-import service.calcularHorasTrabalhadas.HorasTrabalhadasMesAtual;
+import Model.HorasTrabalhadas;
+import Model.Usuario;
+import Service.CalcularHorasTrabalhadas.HorasExtrasMesAtual;
+import Service.CalcularHorasTrabalhadas.HorasTrabalhadasMesAtual;
 
 /**
  * 

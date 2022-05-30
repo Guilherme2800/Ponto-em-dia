@@ -1,4 +1,4 @@
-package repository;
+package Repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import model.Ponto;
-import model.Usuario;
+import Model.Ponto;
+import Model.Usuario;
 
 /**
  * 
