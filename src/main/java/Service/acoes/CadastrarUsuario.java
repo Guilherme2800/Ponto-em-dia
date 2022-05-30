@@ -1,4 +1,4 @@
-package Service.acoes;
+package service.acoes;
 
 import java.io.IOException;
 
@@ -6,9 +6,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Model.TipoUsuario;
-import Service.UsuarioService;
+import model.TipoUsuario;
+import service.UsuarioService;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class CadastrarUsuario implements AcaoInterface{
 
 	@Override

@@ -1,4 +1,4 @@
-package Service.CalcularHorasTrabalhadas;
+package service.calcularHorasTrabalhadas;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -8,9 +8,14 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import Model.Ponto;
-import Model.Usuario;
+import model.Ponto;
+import model.Usuario;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class HorasTrabalhadasSemanaAtual extends CalcularHorasTrabalhadas {
 
 	@Override

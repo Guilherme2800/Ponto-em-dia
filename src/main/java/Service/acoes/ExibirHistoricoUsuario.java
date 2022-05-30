@@ -6,24 +6,18 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Usuario;
-import service.UsuarioService;
-
 /**
  * 
  * @author Guilherme2800
  *
  */
-public class ExibirPerfil implements AcaoInterface{
+public class ExibirHistoricoUsuario implements AcaoInterface{
 
 	@Override
 	public String executar(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Usuario user = (Usuario) req.getSession().getAttribute("usuario");
-		Usuario userFull = new UsuarioService().buscarUsuario(user.getId());
-		req.setAttribute("userFull", userFull);
-		return "forward:perfil.jsp";
+		req.setAttribute("dataInicio", "");
+		req.setAttribute("dataFinal", "");
+		return "forward:historicoPontos.jsp";
 	}
 
-	
-	
 }

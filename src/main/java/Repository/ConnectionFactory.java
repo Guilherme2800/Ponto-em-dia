@@ -1,9 +1,14 @@
-package Repository;
+package repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class ConnectionFactory {
 
 	private final static String USER = "root";

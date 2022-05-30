@@ -1,4 +1,4 @@
-package Service.acoes;
+package service.acoes;
 
 import java.io.IOException;
 
@@ -6,11 +6,16 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Service.CalcularHorasTrabalhadas.HorasExtrasMesAtual;
-import Service.CalcularHorasTrabalhadas.HorasTrabalhadasDiaAnterior;
-import Service.CalcularHorasTrabalhadas.HorasTrabalhadasMesAtual;
-import Service.CalcularHorasTrabalhadas.HorasTrabalhadasSemanaAtual;
+import service.calcularHorasTrabalhadas.HorasExtrasMesAtual;
+import service.calcularHorasTrabalhadas.HorasTrabalhadasDiaAnterior;
+import service.calcularHorasTrabalhadas.HorasTrabalhadasMesAtual;
+import service.calcularHorasTrabalhadas.HorasTrabalhadasSemanaAtual;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class Dashbord implements AcaoInterface {
 
 	@Override

@@ -1,4 +1,4 @@
-package Service.acoes;
+package service.acoes;
 
 import java.io.IOException;
 
@@ -6,8 +6,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Service.PontoService;
+import service.PontoService;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class EditarPontoAdmin implements AcaoInterface{
 
 	@Override
@@ -22,7 +27,7 @@ public class EditarPontoAdmin implements AcaoInterface{
 		
 		new PontoService().editarRegistro(user_id, data, horaEntrada, horaAlmoco, horaVoltaAlmoco, horaSaida);
 		
-		return "redirect:entrada?acao=HistoricoUsuarioAdmin";
+		return new HistoricoUsuarioAdmin().executar(req, resp);
 	}
 
 	

@@ -1,4 +1,4 @@
-package Service.CalcularHorasTrabalhadas;
+package service.calcularHorasTrabalhadas;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -6,11 +6,22 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import Model.Ponto;
-import Model.Usuario;
+import model.Ponto;
+import model.Usuario;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class HorasTrabalhadasMesAtual extends CalcularHorasTrabalhadas {
 
+	/**
+	 * Método que calcula as horas trabalhadas no mês atual, do usuário autenticado no sistema
+	 * 
+	 * @param req
+	 * @return Retorna a quantidade de horas trabalhadas do usuário
+	 */
 	@Override
 	public String calcularHoras(HttpServletRequest req) {
 
@@ -28,6 +39,12 @@ public class HorasTrabalhadasMesAtual extends CalcularHorasTrabalhadas {
 	}
 	
 
+	/**
+	 * Método que calcula as horas trabalhadas no mês atual, do usuário informado no parametro
+	 * 
+	 * @param user
+	 * @return Retorna a quantidade de horas trabalhadas do usuário
+	 */
 	public String calcularHoras(Usuario user) {
 
 		List<Ponto> pontosUsuario = pontoService
@@ -42,7 +59,34 @@ public class HorasTrabalhadasMesAtual extends CalcularHorasTrabalhadas {
 
 		return gerarHorasTrabalhadas(totalMinutos);
 	}
+	
+	/**
+	 * Método que calcula as horas trabalhadas no intervalo de tempo informado, do usuário passado
+	 * como parametro
+	 * 
+	 * @param user
+	 * @param startDate
+	 * @param endDate
+	 * @return Retorna a quantidade de horas trabalhadas do usuário
+	 */
+	public String calcularHoras(Usuario user, String startDate, String endDate) {
 
+		List<Ponto> pontosUsuario = pontoService
+				.buscarPontosIntervaloDoUsuario(user, startDate, endDate);
+
+		long totalMinutos = 0l;
+
+		for (Ponto ponto : pontosUsuario) {
+			pontoService.validarHorarios(ponto);
+			totalMinutos += calcularMinutos(ponto);
+		}
+
+		return gerarHorasTrabalhadas(totalMinutos);
+	}
+
+	/**
+	 * @return intervalo de tempo do mês atual
+	 */
 	@Override
 	public String intervalo() {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy/MM/dd");

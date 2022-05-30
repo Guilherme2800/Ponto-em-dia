@@ -5,7 +5,7 @@
 <html lang="pt-br">
 
 <head>
-<title>Ponto em Dia - Historico</title>
+<title>Ponto em Dia - Historico Admin</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,37 +16,43 @@
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
 <link rel="shortcut icon" href="img/favicon-16x16.png" />
-<%@ include file="css/sidebar.jsp"%>
+
 <link href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"
 	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 
+<link rel="stylesheet" href="css/sidebar.css" />
 </head>
 
-<body>
+<body id="body-pd">
 
-	<div id="wrapper" class="toggled ">
+	<c:set var="pagina" value="historicoAdmin" scope="request" />
+	<%@ include file="sideBarV2.jsp"%>
 
-		<!-- Sidebar -->
-		<div id="sidebar-wrapper"
-			class="d-flex flex-column vh-100 flex-shrink-0 p-3 text-white bg-dark">
-			
-			<c:set var="pagina" value="historicoAdmin" scope="request" />
-			<%@ include file="opcoesSideBar.jsp"%>
+	<!--Container Main start-->
+	<div class="container center-block" style="overflow-y: auto">
 
-			<div class="dropdown">
-				<%@ include file="footerSideBar.jsp"%>
-			</div>
+		<h1>Historico de pontos registrados - Todos usuários</h1>
+		<hr>
 
+		<div class="shadow-sm p-3 mb-5 bg-body rounded inputDatas">
+			<label><b>Filtragem de dados</b></label>
+			<form action="entrada?acao=HistoricoUsuarioAdmin" method="post">
+				<label>Data inicial: </label> <input type="date" name="dataInicial">
+				<label>Data final: <input type="date" name="dataFinal">
+					<input type="submit" value="Pesquisar" class="btn btn-success">
+				</label>
+			</form>
 		</div>
-		<!-- /#sidebar-wrapper -->
 
-		<!-- Page Content -->
-		<div class="container center-block" style="overflow-y: auto">
-
-			<h1>Historico de pontos registrados - Todos usuários</h1>
-			<hr>
-
-			<table class="table" id="tabelaHistorico">
+		<div class="shadow-sm p-3 mb-5 bg-body rounded tabelaPontos">
+			<c:if test="${dataInicio != ''}">
+				<small><b>Periodo: ${dataInicio} até ${dataFinal}</b></small>
+				<br>
+			</c:if>
+			<br>
+			<table class="table" id="tabelaHistoricoAdmin">
 				<thead>
 					<tr>
 						<th>Id usuario</th>
@@ -83,77 +89,104 @@
 				</tbody>
 			</table>
 		</div>
-	</div>
 
+        <!-- Modal Editar -->
+		<div class="modal fade" id="editar" tabindex="-1"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
 
-	<!-- Modal editar-->
-	<div class="modal fade" id="editar" tabindex="-1"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Editar</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
+						<form action="entrada?acao=EditarPontoAdmin" method="post">
+
+							<input hidden="" id="user_id_update"
+								class="form-control border-0" type="text" name="user_id">
+							<input hidden="" id="data_update" class="form-control border-0"
+								type="text" name="data"> <label>Horario chegada:
+							</label> <input required id="horaEntrada" class="form-control border-0"
+								type="time" name="horaEntrada"> <label>Horario
+								Almoço: </label> <input required id="horaAlmoco"
+								class="form-control border-0" type="time" name="horaAlmoco">
+
+							<label>Horario volta do Almoço: </label> <input required
+								id="horaVoltaAlmoco" class="form-control border-0" type="time"
+								name="horaVoltaAlmoco"> <label>Horario saída: </label> <input
+								required id="horaSaida" class="form-control border-0"
+								type="time" name="horaSaida">
+								
+								<input hidden="" name="dataInicial" value="${dataInicio}">
+								<input hidden="" name="dataFinal" value="${dataFinal}">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger"
+							data-bs-dismiss="modal">Cancelar</button>
+						<button class="btn btn-success" type="submit" name="submit">Salvar</button>
+						</form>
+					</div>
 				</div>
-				<div class="modal-body">
+			</div>
+		</div>
 
-					<form action="entrada?acao=EditarPontoAdmin" method="post">
-
-						<input hidden="" id="user_id_update" class="form-control border-0"
-							type="text" name="user_id"> <input hidden=""
-							id="data_update" class="form-control border-0" type="text"
-							name="data"> <label>Horario chegada: </label> <input
-							required id="horaEntrada" class="form-control border-0"
-							type="time" name="horaEntrada"> <label>Horario
-							Almoço: </label> <input required id="horaAlmoco"
-							class="form-control border-0" type="time" name="horaAlmoco">
-
-						<label>Horario volta do Almoço: </label> <input required
-							id="horaVoltaAlmoco" class="form-control border-0" type="time"
-							name="horaVoltaAlmoco"> <label>Horario saída: </label> <input
-							required id="horaSaida" class="form-control border-0" type="time"
-							name="horaSaida">
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-danger"
-						data-bs-dismiss="modal">Cancelar</button>
-					<button class="btn btn-success" type="submit" name="submit">Salvar</button>
-					</form>
+		<!-- Modal Remover-->
+		<div class="modal fade" id="remover" tabindex="-1"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Deletar
+							Registro</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"
+							aria-label="Close"></button>
+					</div>
+					<div class="modal-body">Realmente deseja apagar esse
+						registro?</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-success"
+							data-bs-dismiss="modal">Cancelar</button>
+						<form action="entrada?acao=ApagarRegistroAdmin" method="post">
+							<input hidden="" id="user_id_remove"
+								class="form-control border-0 user_id" type="text" name="user_id">
+							<input hidden="" id="data_remove" class="form-control border-0"
+								type="text" name="data">
+							<input hidden="" name="dataInicial" value="${dataInicio}">
+							<input hidden="" name="dataFinal" value="${dataFinal}">
+							<button class="btn btn-danger" type="submit" name="submit">Apagar</button>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<!-- Modal Remover-->
-	<div class="modal fade" id="remover" tabindex="-1"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Deletar
-						Registro</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<div class="modal-body">Realmente deseja apagar esse registro?</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-success"
-						data-bs-dismiss="modal">Cancelar</button>
-					<form action="entrada?acao=ApagarRegistroAdmin" method="post">
-						<input hidden="" id="user_id_remove"
-							class="form-control border-0 user_id" type="text" name="user_id">
-						<input hidden="" id="data_remove" class="form-control border-0"
-							type="text" name="data">
-						<button class="btn btn-danger" type="submit" name="submit">Apagar</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
+	<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#tabelaHistoricoAdmin').DataTable({
+				"language" : {
+					"lengthMenu" : "Registros por página:  _MENU_",
+					"zeroRecords" : "Nada encontrado - Utilize o formulário acima",
+					"info" : "Mostrando página _PAGE_ de _PAGES_",
+					"infoEmpty" : "Nenhum registro disponível",
+					"infoFiltered" : "(filtrado de _MAX_ registros no total)",
+					"search":"Pesquisar",
+					"paginate": {
+				        "next": "Próximo",
+				        "previous": "Anterior",
+				        "first": "Primeiro",
+				        "last": "Último"
+				    },
+				}
+			});
+		});
+	</script>
 </body>
+
+
 <!-- JavaScript Bundle with Popper -->
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -161,6 +194,7 @@
 	crossorigin="anonymous"></script>
 <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-<%@ include file="scripts/HistoricoAdmin.jsp"%>
+<script src="scripts/sidebar.js"></script>
+<script src="scripts/historico.js"></script>
 
 </html>

@@ -1,12 +1,17 @@
-package Service.CalcularHorasTrabalhadas;
+package service.calcularHorasTrabalhadas;
 
 import java.util.concurrent.TimeUnit;
 
 import javax.servlet.http.HttpServletRequest;
 
-import Model.Ponto;
-import Service.PontoService;
+import model.Ponto;
+import service.PontoService;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public abstract class CalcularHorasTrabalhadas {
 
 	protected PontoService pontoService = new PontoService();

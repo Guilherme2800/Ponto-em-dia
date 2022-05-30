@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.io.IOException;
 
@@ -8,9 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Model.Usuario;
-import Service.UsuarioService;
+import model.Usuario;
+import service.UsuarioService;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 

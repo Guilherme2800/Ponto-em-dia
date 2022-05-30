@@ -1,4 +1,4 @@
-package Service.acoes;
+package service.acoes;
 
 import java.io.IOException;
 
@@ -6,9 +6,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Model.Usuario;
-import Service.UsuarioService;
+import model.Usuario;
+import service.UsuarioService;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class AlterarPerfil implements AcaoInterface{
 
 	@Override
@@ -32,6 +37,12 @@ public class AlterarPerfil implements AcaoInterface{
 		return "redirect:entrada?acao=ExibirPerfil";
 	}
 	
+	/**
+	 * Método que atualiza a imagem do usuário presente na sessão
+	 * 
+	 * @param req
+	 * @param urlImagem
+	 */
 	private void atualizarUsuarioSession(HttpServletRequest req, String urlImagem) {
 		Usuario user = (Usuario) req.getSession().getAttribute("usuario");
 		user.setUrlImagem(urlImagem);

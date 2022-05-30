@@ -1,7 +1,12 @@
-package Model;
+package model;
 
 import java.util.Date;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class Ponto {
 
 	private Long id;

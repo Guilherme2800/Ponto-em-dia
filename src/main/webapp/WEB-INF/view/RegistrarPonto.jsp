@@ -15,32 +15,22 @@
 	rel="stylesheet"
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
+
+<link rel="stylesheet"
+	href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
 <link rel="shortcut icon" href="img/favicon-16x16.png" />
-<%@ include file="css/sidebar.jsp"%>
-<%@ include file="css/cardUsuario.jsp"%>
-
-
+<link rel="stylesheet" href="css/cardUsuario.css"/>
+<link rel="stylesheet" href="css/sidebar.css"/>
 </head>
 
-<body>
+<body id="body-pd">
 
-	<div id="wrapper" class="toggled ">
+    <c:set var="pagina" value="registrarPonto" scope="request" />
+	<%@ include file="sideBarV2.jsp"%>
 
-		<!-- Sidebar -->
-		<div id="sidebar-wrapper"
-			class="d-flex flex-column vh-100 flex-shrink-0 p-3 text-white bg-dark">
-			
-			<c:set var="pagina" value="registrarPonto" scope="request" />
-			<%@ include file="opcoesSideBar.jsp"%>  
-
-			<div class="dropdown">
-				<%@ include file="footerSideBar.jsp"%>  
-			</div>
-
-		</div>
-		<!-- /#sidebar-wrapper -->
-
-		<!-- Page Content -->
+	<!--Container Main start-->
+	<div class="height-100">
 		<div class="container center-block">
 
 			<h1>Registrar Ponto</h1>
@@ -50,12 +40,13 @@
 				<div class="col-md-6 col-lg-4 item shadow-lg p-3 mb-5 bg-body">
 					<div class="box">
 
-						<c:if test="${usuario.urlImagem != null and usuario.urlImagem != \"\"}">
+						<c:if
+							test="${usuario.urlImagem != null and usuario.urlImagem != \"\"}">
 							<img src="${usuario.urlImagem}" class="rounded-circle">
 						</c:if>
-						<c:if test="${usuario.urlImagem == null or usuario.urlImagem == \"\"}">
-							<img class="rounded-circle"
-								src="img/user-default.png"">
+						<c:if
+							test="${usuario.urlImagem == null or usuario.urlImagem == \"\"}">
+							<img class="rounded-circle" src="img/user-default.png">
 						</c:if>
 						<h3 class="name">${usuario.nome}</h3>
 						<p class="title">${usuario.cargo}</p>
@@ -73,7 +64,7 @@
 						<br> <br>
 						<p>
 							<b>Data e hora atual:</b>
-							<%@ include file="scripts/DataHoraAtual.jsp"%>
+							<%@ include file="../../scripts/DataHoraAtual.jsp"%>
 						</p>
 						<br>
 						<p class="description"></p>
@@ -87,14 +78,14 @@
 			</div>
 
 		</div>
-
 	</div>
-
 </body>
 <!-- JavaScript Bundle with Popper -->
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 	crossorigin="anonymous"></script>
+
+<script src="scripts/sidebar.js"></script>	
 
 </html>

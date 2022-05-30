@@ -1,4 +1,4 @@
-package Service.acoes;
+package service.acoes;
 
 import java.io.IOException;
 
@@ -6,8 +6,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Service.PontoService;
+import service.PontoService;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class ApagarRegistroAdmin implements AcaoInterface{
 
 	@Override
@@ -15,8 +20,9 @@ public class ApagarRegistroAdmin implements AcaoInterface{
 		
 		Long user_id = Long.parseLong(req.getParameter("user_id"));
 		String data = req.getParameter("data");
-		new PontoService().apagarRegistro(user_id, data);;
-		return "redirect:entrada?acao=HistoricoUsuarioAdmin";
+		new PontoService().apagarRegistro(user_id, data);
+		
+		return new HistoricoUsuarioAdmin().executar(req, resp);
 	}
 
 }

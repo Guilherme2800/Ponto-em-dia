@@ -1,16 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-<style>
+@charset "ISO-8859-1";
+
 
 body {
-  background-color: #2a2c3b;
+  background-color: #130f24;
   font-family: "Lato", sans-serif;
 }
 
@@ -107,7 +99,3 @@ body {
 .form-control:-ms-input-placeholder {
   color: red;
 }
-
-</style>
-</body>
-</html>

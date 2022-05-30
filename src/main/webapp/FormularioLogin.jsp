@@ -7,7 +7,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <meta charset="ISO-8859-1">
 <title>Ponto em dia - Login</title>
-<%@ include file="WEB-INF/view/css/login.jsp"%>
+<link rel="stylesheet" href="css/login.css"/>
 </head>
 <body>
 
@@ -29,11 +29,11 @@
               <input class="form-control border-0" type="password" name="senha" placeholder="Senha">
               <br>
               <button class="btn btn-primary btn-sm border-0" type="submit" name="submit">Login</button>
-              <p class="forgot"><a href="">Forgot Password?</a></p>
             </form>
           </div>
           <div class="nomember">
-            <p class="text-center">Not a member? <a href="">Create an Account</a></p>
+            <p class="text-center">Sem cadastro? 
+            <a href="https://www.linkedin.com/in/guilherme-henrique-a333151ba/" target="_blank">Consulte o Admin do sistema</a></p>
           </div>
         </div>
       </div>
