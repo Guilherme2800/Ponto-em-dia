@@ -6,6 +6,8 @@ O sistema é sub divido em dois niveis de usuários: Administradores e usuários
 
 O usuário comum tem opções limitadas de acesso dentro da aplicação. Já o usuário administrador tem acesso a todas as funções.
 
+[Principais telas](https://drive.google.com/drive/folders/1P3145fxXxaJR6OusG8BW8r1RjFSdrMdD?usp=sharing)
+
 ![Screenshot_8](https://user-images.githubusercontent.com/71987686/171059178-c3db0e4f-38f9-40d2-b67e-c75346259d67.png)
 
 ## Implementação
