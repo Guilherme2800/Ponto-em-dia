@@ -54,7 +54,7 @@ git clone https://github.com/Guilherme2800/Ponto-em-dia.git
 
 ![Screenshot_4](https://user-images.githubusercontent.com/71987686/171058410-d18bea94-1a68-4046-ac06-6604dd0450f3.png)
 
-10. End-point para acessar a aplicação: http://localhost:8080/PontoEmDia/entrada
+10. End-point para acessar a aplicação: http://localhost:8080/PontoEmDia/login
 
 Usuário para acesso: 
 
