@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import service.acoes.AcaoInterface;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 @WebServlet("/entrada")
 public class EntradaServlet extends HttpServlet {
 

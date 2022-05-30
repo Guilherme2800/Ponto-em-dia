@@ -11,6 +11,11 @@ import service.calcularHorasTrabalhadas.HorasTrabalhadasDiaAnterior;
 import service.calcularHorasTrabalhadas.HorasTrabalhadasMesAtual;
 import service.calcularHorasTrabalhadas.HorasTrabalhadasSemanaAtual;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class Dashbord implements AcaoInterface {
 
 	@Override

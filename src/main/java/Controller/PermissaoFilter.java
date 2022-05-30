@@ -14,6 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import model.TipoUsuario;
 import model.Usuario;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 @WebFilter("/entrada")
 public class PermissaoFilter implements Filter {
 

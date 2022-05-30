@@ -14,6 +14,11 @@ import model.Ponto;
 import model.Usuario;
 import service.PontoService;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class HistoricoUsuario implements AcaoInterface{
 	
 	@Override

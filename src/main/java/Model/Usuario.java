@@ -2,6 +2,11 @@ package model;
 
 import java.util.Date;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class Usuario {
 
 	private Long id;

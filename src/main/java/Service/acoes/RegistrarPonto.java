@@ -10,6 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import model.Usuario;
 import repository.PontoRepository;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class RegistrarPonto implements AcaoInterface{
 
 	@Override

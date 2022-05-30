@@ -10,6 +10,11 @@ import model.Ponto;
 import model.Usuario;
 import repository.PontoRepository;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class PontoService {
 
 	private SimpleDateFormat formatacaoSemdia = new SimpleDateFormat("yyyy-MM");

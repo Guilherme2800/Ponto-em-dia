@@ -12,6 +12,11 @@ import java.util.List;
 import model.TipoUsuario;
 import model.Usuario;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class UsuarioRepository {
 
 	private static UsuarioRepository userRepository;

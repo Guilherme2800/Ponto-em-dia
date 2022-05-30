@@ -9,6 +9,11 @@ import model.TipoUsuario;
 import model.Usuario;
 import repository.UsuarioRepository;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class UsuarioService {
 
 	/**

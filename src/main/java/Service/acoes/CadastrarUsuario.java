@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import model.TipoUsuario;
 import service.UsuarioService;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class CadastrarUsuario implements AcaoInterface{
 
 	@Override

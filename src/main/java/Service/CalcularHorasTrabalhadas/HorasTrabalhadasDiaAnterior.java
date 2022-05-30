@@ -8,6 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import model.Ponto;
 import model.Usuario;
 
+/**
+ * 
+ * @author Guilherme2800
+ *
+ */
 public class HorasTrabalhadasDiaAnterior extends CalcularHorasTrabalhadas {
 
 	@Override
