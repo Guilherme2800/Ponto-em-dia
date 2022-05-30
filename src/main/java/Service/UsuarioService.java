@@ -1,13 +1,13 @@
-package service;
+package Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import model.TipoUsuario;
-import model.Usuario;
-import repository.UsuarioRepository;
+import Model.TipoUsuario;
+import Model.Usuario;
+import Repository.UsuarioRepository;
 
 /**
  * 

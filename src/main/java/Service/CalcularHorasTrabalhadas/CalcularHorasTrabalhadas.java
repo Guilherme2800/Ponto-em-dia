@@ -1,11 +1,11 @@
-package service.calcularHorasTrabalhadas;
+package Service.CalcularHorasTrabalhadas;
 
 import java.util.concurrent.TimeUnit;
 
 import javax.servlet.http.HttpServletRequest;
 
-import model.Ponto;
-import service.PontoService;
+import Model.Ponto;
+import Service.PontoService;
 
 /**
  * 
