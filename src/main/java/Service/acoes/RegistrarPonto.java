@@ -1,4 +1,4 @@
-package service.acoes;
+package Service.acoes;
 
 import java.io.IOException;
 import java.util.Date;
@@ -7,8 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Usuario;
-import repository.PontoRepository;
+import Model.Usuario;
+import Repository.PontoRepository;
 
 /**
  * 

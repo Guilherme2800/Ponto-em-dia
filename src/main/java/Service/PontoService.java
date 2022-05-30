@@ -1,4 +1,4 @@
-package service;
+package Service;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -6,9 +6,9 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import model.Ponto;
-import model.Usuario;
-import repository.PontoRepository;
+import Model.Ponto;
+import Model.Usuario;
+import Repository.PontoRepository;
 
 /**
  * 

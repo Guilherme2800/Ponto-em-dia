@@ -1,4 +1,4 @@
-package controller;
+package Controller;
 
 import java.io.IOException;
 
@@ -11,8 +11,8 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.TipoUsuario;
-import model.Usuario;
+import Model.TipoUsuario;
+import Model.Usuario;
 
 /**
  * 
